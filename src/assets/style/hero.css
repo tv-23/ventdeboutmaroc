@@ -1,0 +1,147 @@
+ /* --- DESKTOP SIDE NAV --- */
+ .logo-vert {
+     writing-mode: vertical-rl;
+     text-transform: uppercase;
+     letter-spacing: 5px;
+     font-weight: 900;
+     font-size: 0.8rem;
+ }
+
+ /* --- HERO MAIN --- */
+ .hero-wrapper {
+     height: 100vh;
+     margin-left: 80px;
+     position: relative;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+ }
+
+ /* --- PILLAR CONTAINER --- */
+ .pillar-container {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     gap: 10px;
+     padding: 20px;
+     z-index: 1;
+ }
+
+ .pillar {
+     flex: 1;
+     height: 100%;
+     overflow: hidden;
+     position: relative;
+     filter: grayscale(100%) brightness(0.6);
+     transition: filter 0.8s ease;
+ }
+
+ .pillar:hover {
+     filter: grayscale(0%) brightness(1);
+ }
+
+ .pillar img {
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+     position: absolute;
+     pointer-events: none;
+ }
+
+ /* --- CONTENT LAYER --- */
+ .content-layer {
+     position: relative;
+     z-index: 5;
+     width: 100%;
+     padding: 0 5%;
+     pointer-events: none;
+ }
+
+ .huge-title {
+     font-family: 'Playfair Display', serif;
+     font-size: 15vw;
+     line-height: 0.8;
+     text-transform: uppercase;
+     font-style: italic;
+     mix-blend-mode: difference;
+ }
+
+ .sub-headline {
+     position: absolute;
+     bottom: 50px;
+     right: 10%;
+     max-width: 400px;
+     text-align: right;
+     pointer-events: auto;
+ }
+
+ .sub-headline p {
+     font-size: 1.1rem;
+     font-weight: 400;
+     line-height: 1.4;
+     margin-bottom: 25px;
+     color: var(--primary);
+ }
+
+ .cta-rupture {
+     display: inline-block;
+     padding: 18px 35px;
+     background: var(--light);
+     color: var(--dark);
+     text-decoration: none;
+     font-weight: 900;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+ }
+
+ /* -------------------------------------------
+           MOBILE OPTIMIZATIONS
+        ------------------------------------------- */
+ @media (max-width: 768px) {
+     .logo-vert {
+         writing-mode: horizontal-tb;
+         font-size: 0.7rem;
+     }
+
+     .hero-wrapper {
+         margin-left: 0;
+         margin-top: 60px;
+         height: calc(100vh - 60px);
+     }
+
+     .pillar-container {
+         gap: 0;
+         padding: 0;
+         width: 400%;
+         /* Space for 3 images + 1 clone */
+         display: flex;
+         flex-wrap: nowrap;
+         touch-action: pan-y;
+     }
+
+     .pillar {
+         flex: 0 0 100vw;
+         height: 100%;
+         filter: grayscale(100%) brightness(0.4);
+     }
+
+     .huge-title {
+         font-size: 28vw;
+         margin-top: -80px;
+         text-align: center;
+     }
+
+     .sub-headline {
+         bottom: 40px;
+         left: 0;
+         right: 0;
+         width: 100%;
+         padding: 0 20px;
+         text-align: center;
+         max-width: none;
+     }
+ }
