@@ -1,0 +1,112 @@
+---
+import "../../../src/assets/style/our_partners.css";
+---
+
+<section class="partners-stack-area">
+    <div class="partners-layout-engine" id="partnersContainer">
+        
+        <!-- Partner 1 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">01</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_160f5e88103b40cf9729707064fcac24~mv2.jpg/v1/fill/w_200,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20MONT%20d'en%20bas.jpg" alt="">
+                </div>
+                <h4 class="p-name">LE MONT D'EN BAS</h4>
+            </div>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">02</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_30239839a8274deab281aa81f2d4b949~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HELMo%20Logo.png" alt="">
+                </div>
+                <h4 class="p-name">HELMO</h4>
+            </div>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">03</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_c3a68dfd5e714a199cb5da95763b62e8~mv2.png/v1/fill/w_220,h_96,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/uli%C3%A8ge.png" alt="">
+                </div>
+                <h4 class="p-name">ULIÈGE</h4>
+            </div>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">04</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_64f39e74783e4ddeba96ea248d499591~mv2.jpg/v1/fill/w_207,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/fed%20wall%20bx.jpg" alt="">
+                </div>
+                <h4 class="p-name">FÉDÉRATION WALLONIE-BRUXELLES</h4>
+            </div>
+        </div>
+
+        <!-- Partner 5 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">05</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_f472df34134649ed9a38c0114de24dd0~mv2.jpg/v1/fill/w_220,h_199,al_c,lg_1,q_80,enc_avif,quality_auto/Wifaq_jfif.jpg" alt="">
+                </div>
+                <h4 class="p-name">ASSOCIATION WIFAQ</h4>
+            </div>
+        </div>
+
+        <!-- Partner 6 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">06</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_108721cbe76a48caa3b0d9faab52b78f~mv2.jpeg/v1/fill/w_220,h_100,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Union%20de%20l'action%20fem.jpeg" alt="">
+                </div>
+                <h4 class="p-name">UNION DE L'ACTION FÉMININE</h4>
+            </div>
+        </div>
+
+        <!-- Partner 7 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">07</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_8fdc58839aad40d6a38c10caedfb9d6f~mv2.jpg/v1/fill/w_220,h_165,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/association%20surf%20larache.jpg" alt="">
+                </div>
+                <h4 class="p-name">ASSOCIATION SURF LARACHE</h4>
+            </div>
+        </div>
+
+        <!-- Partner 8 -->
+        <div class="partner-item">
+            <div class="p-inner-box">
+                <span class="p-index">08</span>
+                <div class="p-logo-wrap">
+                    <img src="https://static.wixstatic.com/media/60ae4a_0baaa31478154cfabd3d3071f9a85587~mv2.jpg/v1/fill/w_220,h_198,al_c,lg_1,q_80,enc_avif,quality_auto/surfrider%20Foundation%20Maroc.jpg" alt="">
+                </div>
+                <h4 class="p-name">SURFRIDER FOUNDATION</h4>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    // Entry reveal animation
+    gsap.from(".partner-item", {
+        scrollTrigger: {
+            trigger: "#partnersContainer",
+            start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power3.out"
+    });
+</script>

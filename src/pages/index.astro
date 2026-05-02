@@ -1,0 +1,56 @@
+---
+import Hero from "../components/home/hero.astro";
+import OurValues from "../components/home/our-values.astro";
+import OurTeam from "../components/home/our-team.astro";
+import Partners from "../components/home/our_partners.astro";
+import About from "../components/home/about.astro";
+import SectionTitle from "../components/section-title.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Hero />
+  <About />
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">NOS</span>
+      <span class="sh-word italic">VALEURS</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+  />
+  <OurValues />
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">NOTRE</span>
+      <span class="sh-word italic">ÉQUIPE</span>
+    </h2>
+    <div class="sh-description">
+      <p>Une structure humaine articulée autour de la psychologie, de l'éducation et de l'accompagnement de terrain.</p>
+    </div>
+  </div>
+`}
+  />
+  <OurTeam />
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">NOS</span>
+      <span class="sh-word italic">PARTENAIRES</span>
+    </h2>
+    <div class="sh-description">
+      <p>Certains de nos partenaires disposent d'un site internet que vous pouvez visiter en cliquant sur les logos.</p>
+    </div>
+  </div>
+`}
+  />
+  <Partners/>
+</Layout>

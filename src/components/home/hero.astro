@@ -1,0 +1,165 @@
+---
+import "../../../src/assets/style/hero.css";
+---
+
+<main class="hero-wrapper" id="touch-zone">
+    <div class="pillar-container" id="slider">
+        <!-- Slide 1 -->
+        <div class="pillar">
+            <img
+                src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=2071&auto=format&fit=crop"
+                alt=""
+            />
+        </div>
+        <!-- Slide 2 -->
+        <div class="pillar" id="mid-p">
+            <img
+                src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop"
+                alt=""
+            />
+        </div>
+        <!-- Slide 3 -->
+        <div class="pillar">
+            <img
+                src="https://static.wixstatic.com/media/60ae4a_eaad1885c9074961af3a632e36bd49d8~mv2.jpg/v1/fill/w_1905,h_919,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/60ae4a_eaad1885c9074961af3a632e36bd49d8~mv2.jpg"
+                alt=""
+            />
+        </div>
+        <!-- Clone Slide 1 -->
+        <div class="pillar mobile-only-clone" style="display:none;">
+            <img
+                src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=2071&auto=format&fit=crop"
+                alt=""
+            />
+        </div>
+    </div>
+
+    <div class="content-layer">
+        <h1 class="huge-title">RUP<br />TURE</h1>
+        <div class="sub-headline">
+            <p>Voyage éducatif au cœur du Maroc pour se reconstruire.</p>
+            <a href="#" class="cta-rupture">L'Expérience</a>
+        </div>
+    </div>
+</main>
+
+<script>
+    const slider = document.getElementById("slider");
+    const touchZone = document.getElementById("touch-zone");
+    const isMobile = window.innerWidth <= 768;
+
+    // 1. Desktop Layout Logic (Unchanged)
+    if (!isMobile) {
+        document.getElementById("mid-p").style.marginTop = "60px";
+        document.addEventListener("mousemove", (e) => {
+            const xPos = e.clientX / window.innerWidth - 0.5;
+            const yPos = e.clientY / window.innerHeight - 0.5;
+            gsap.to(".pillar img", {
+                x: xPos * 30,
+                y: yPos * 30,
+                duration: 1,
+                ease: "power2.out",
+            });
+        });
+    }
+
+    // 2. Mobile Slider Logic (Auto-Looping + Manual Swipe)
+    if (isMobile) {
+        document.querySelector(".mobile-only-clone").style.display = "block";
+
+        let currentIndex = 0;
+        const totalSlides = 3;
+        let autoTimer;
+        let startX = 0;
+
+        function goToSlide(index, duration = 1.2) {
+            currentIndex = index;
+            gsap.to(slider, {
+                x: -(currentIndex * 100) + "vw",
+                duration: duration,
+                ease: "expo.inOut",
+                onComplete: () => {
+                    if (currentIndex === totalSlides) {
+                        currentIndex = 0;
+                        gsap.set(slider, { x: "0vw" });
+                    } else if (currentIndex < 0) {
+                        currentIndex = totalSlides - 1;
+                        gsap.set(slider, { x: -(currentIndex * 100) + "vw" });
+                    }
+                },
+            });
+        }
+
+        function startAutoSlider() {
+            autoTimer = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 4000);
+        }
+
+        function resetTimer() {
+            clearInterval(autoTimer);
+            startAutoSlider();
+        }
+
+        // TOUCH EVENTS FOR MANUAL SLIDE
+        touchZone.addEventListener(
+            "touchstart",
+            (e) => {
+                startX = e.touches[0].clientX;
+                clearInterval(autoTimer); // Stop auto while interacting
+            },
+            { passive: true },
+        );
+
+        touchZone.addEventListener(
+            "touchend",
+            (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) {
+                    // Swipe threshold
+                    if (diff > 0) {
+                        goToSlide(currentIndex + 1, 0.8); // Swipe Left -> Next
+                    } else {
+                        goToSlide(currentIndex - 1, 0.8); // Swipe Right -> Prev
+                    }
+                }
+                resetTimer(); // Resume auto slider
+            },
+            { passive: true },
+        );
+
+        startAutoSlider();
+    }
+
+    // 3. Entrance Animation
+    const tl = gsap.timeline();
+    tl.from(".pillar", {
+        duration: 1.5,
+        y: !isMobile ? 1000 : 0,
+        x: !isMobile ? 0 : 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+    })
+        .from(
+            ".huge-title",
+            {
+                duration: 1.2,
+                y: 50,
+                opacity: 0,
+                ease: "power4.out",
+            },
+            "-=1",
+        )
+        .from(
+            ".sub-headline",
+            {
+                duration: 1,
+                opacity: 0,
+                y: 20,
+            },
+            "-=0.5",
+        );
+</script>

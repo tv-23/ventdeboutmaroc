@@ -1,0 +1,178 @@
+.partners-stack-area {
+    background: #FFFFFF;
+    padding: 50px 10% 150px calc(var(--sidebar-w) + 80px);
+    overflow: hidden;
+}
+
+/* --- DESKTOP ENGINE (Expanding Rows) --- */
+@media (min-width: 1025px) {
+    .partners-layout-engine {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid #EEE;
+        max-width: 1200px;
+    }
+
+    .partner-item {
+        position: relative;
+        height: 100px;
+        border-bottom: 1px solid #EEE;
+        cursor: pointer;
+        transition: height 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        overflow: hidden;
+    }
+
+    .p-inner-box {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 40px;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .p-index {
+        font-family: 'Playfair Display';
+        font-weight: 900;
+        color: var(--primary);
+        width: 60px;
+    }
+
+    .p-name {
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: var(--dark);
+        transition: all 0.6s ease;
+    }
+
+    .p-logo-wrap {
+        position: absolute;
+        left: 15%;
+        opacity: 0;
+        transform: translateX(-30px) scale(0.8);
+        transition: all 0.6s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+        width: 160px;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .p-logo-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: grayscale(100%);
+        transition: 0.4s;
+    }
+
+    /* Hover Expansion */
+    .partner-item:hover {
+        height: 260px;
+        background: #F9F7F3;
+    }
+
+    .partner-item:hover .p-name {
+        font-family: 'Playfair Display';
+        font-style: italic;
+        font-size: 3rem;
+        color: var(--primary);
+        padding-left: 280px;
+        text-transform: none;
+    }
+
+    .partner-item:hover .p-logo-wrap {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    .partner-item:hover .p-logo-wrap img {
+        filter: grayscale(0%);
+    }
+}
+
+/* --- MOBILE & TABLET ENGINE (Staggered Bento Grid) --- */
+@media (max-width: 1024px) {
+    .partners-stack-area {
+        padding: 60px 20px 100px 20px;
+    }
+
+    .partners-layout-engine {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        gap: 20px;
+    }
+
+    .partner-item {
+        background: #FFFFFF;
+        border: 1px solid #F0F0F0;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        /* Architectural Rupture Shape on mobile too */
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 15% 100%, 0% 100%);
+    }
+
+    /* Staggered Height Effect for "Out of the box" feel */
+    .partner-item:nth-child(even) {
+        transform: translateY(30px);
+        margin-bottom: 30px;
+    }
+
+    .p-index {
+        font-family: 'Playfair Display';
+        font-size: 0.7rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        opacity: 0.5;
+    }
+
+    .p-logo-wrap {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .p-logo-wrap img {
+        max-width: 100%;
+        max-height: 80px;
+        object-fit: contain;
+    }
+
+    .p-name {
+        font-size: 0.65rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: var(--dark);
+        line-height: 1.3;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .partners-layout-engine {
+        gap: 15px;
+    }
+
+    .partner-item {
+        padding: 20px 10px;
+    }
+
+    .p-logo-wrap {
+        width: 80px;
+        height: 80px;
+    }
+
+    .p-name {
+        font-size: 0.55rem;
+    }
+}

@@ -1,0 +1,190 @@
+---
+import "../../src/assets/style/header.css";
+---
+
+<aside class="sidebar-brand">
+    <div class="side-brand-top">
+        <div class="side-brand-text">
+            <span class="txt-main">VENT DEBOUT</span>
+            <span class="txt-sub">MAROC</span>
+        </div>
+    </div>
+
+    <!-- Full Social Names Vertical -->
+    <div class="side-socials">
+        <a href="#" class="s-link">FACEBOOK</a>
+        <div class="s-line"></div>
+        <a href="#" class="s-link">LINKEDIN</a>
+    </div>
+</aside>
+
+<!-- 2. STANDALONE LOGO (Spaced away from Sidebar) -->
+<div class="brosmedia-header">
+    <div class="standalone-logo">
+        <a href="/">
+            <img
+                src="https://static.wixstatic.com/media/60ae4a_58b08ed5f7f84b79984c920082b87558~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_-modified.png"
+                alt="Logo"
+                class="img-logo"
+            />
+        </a>
+    </div>
+
+    <!-- 3. KINETIC NAVIGATION (Top Right) -->
+    <header class="header-right">
+        <!-- Desktop Nav (Hidden < 1024px) -->
+        <nav class="kinetic-nav desktop-only">
+            <ul class="nav-list">
+                <li class="nav-item" style="--i:1">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item has-sub" style="--i:2">
+                    <a href="javascript:void(0)" class="nav-link sub-toggle"
+                        >Prise en charge</a
+                    >
+                    <div class="fan-menu">
+                        <div class="fan-inner">
+                            <a href="#"
+                                ><span>01</span> Pour les jeunes & parents</a
+                            >
+                            <a href="#"
+                                ><span>02</span> Pour les professionnels</a
+                            >
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item" style="--i:3">
+                    <a href="#" class="nav-link">Activités</a>
+                </li>
+
+                <li class="nav-item has-sub" style="--i:4">
+                    <a href="javascript:void(0)" class="nav-link sub-toggle"
+                        >Presse & Actus</a
+                    >
+                    <div class="fan-menu">
+                        <div class="fan-inner">
+                            <a href="#"><span>01</span> Actualités</a>
+                            <a href="#"><span>02</span> Articles de presse</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- RIGHT SIDE ACTIONS -->
+        <div class="actions-group">
+            <!-- The Shard CTA (Hidden < 1024px) -->
+            <div class="cta-container desktop-only">
+                <a href="#contact" class="shard-btn">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0,20 L80,0 L100,80 L20,100 Z" id="shardPath"
+                        ></path>
+                    </svg>
+                    <span>CONTACT</span>
+                </a>
+            </div>
+
+            <!-- MOBILE BURGER TRIGGER (Visible < 1024px) -->
+            <div class="mobile-burger" id="burgerTrigger">
+                <div class="burger-line line-top"></div>
+                <div class="burger-line line-bottom"></div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<!-- 4. FULLSCREEN MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <nav class="mobile-nav-content">
+        <a href="#" class="m-nav-link">Home</a>
+
+        <div class="m-nav-item has-m-sub">
+            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
+                >Prise en charge</a
+            >
+            <div class="m-sub-menu">
+                <a href="#">Pour les jeunes & parents</a>
+                <a href="#">Pour les professionnels</a>
+            </div>
+        </div>
+
+        <a href="#" class="m-nav-link">Activités</a>
+
+        <div class="m-nav-item has-m-sub">
+            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
+                >Presse & Actus</a
+            >
+            <div class="m-sub-menu">
+                <a href="#">Actualités</a>
+                <a href="#">Articles de presse</a>
+            </div>
+        </div>
+
+        <!-- Contact added as menu item on mobile -->
+        <a href="#contact" class="m-nav-link m-contact-link">Contact</a>
+    </nav>
+</div>
+
+<script>
+    const el = document.querySelector(".sidebar-brand");
+    el.style.height = window.innerHeight - 80 + "px";
+    document.querySelector(".brosmedia-header").style.height =
+        document.querySelector(".header-right").offsetHeight + "px";
+
+    // 1. Mobile Menu & Burger Toggle Logic
+    const burger = document.getElementById("burgerTrigger");
+    const menu = document.getElementById("mobileMenu");
+
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("open");
+        menu.classList.toggle("open");
+    });
+
+    // 2. Mobile Submenu Toggle
+    document.querySelectorAll(".m-sub-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            trigger.parentElement.classList.toggle("active");
+        });
+    });
+
+    // 3. Desktop Submenu Toggles
+    document.querySelectorAll(".sub-toggle").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const parent = btn.parentElement;
+            document.querySelectorAll(".nav-item").forEach((item) => {
+                if (item !== parent) item.classList.remove("active");
+            });
+            parent.classList.toggle("active");
+        });
+    });
+
+    // 4. Click Outside to Close
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav-item")) {
+            document
+                .querySelectorAll(".nav-item")
+                .forEach((item) => item.classList.remove("active"));
+        }
+    });
+
+    // 5. Shard Path Morph (GSAP)
+    const shardPath = document.getElementById("shardPath");
+    const btnShard = document.querySelector(".shard-btn");
+    if (btnShard && shardPath) {
+        btnShard.addEventListener("mouseenter", () => {
+            gsap.to(shardPath, {
+                attr: { d: "M0,0 L100,0 L100,100 L0,100 Z" },
+                duration: 0.4,
+            });
+        });
+        btnShard.addEventListener("mouseleave", () => {
+            gsap.to(shardPath, {
+                attr: { d: "M0,20 L80,0 L100,80 L20,100 Z" },
+                duration: 0.4,
+            });
+        });
+    }
+</script>

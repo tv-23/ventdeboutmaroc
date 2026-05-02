@@ -1,0 +1,92 @@
+ .section-title {
+     padding: var(--section-padding);
+     background: #FFFFFF;
+ }
+
+ .sh-container {
+     max-width: 1400px;
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     gap: 40px;
+ }
+
+ /* --- MAIN (Title + Description) --- */
+ .sh-main {
+     display: grid;
+     grid-template-columns: 1.2fr 1fr;
+     /* Architectural asymmetry */
+     align-items: flex-end;
+     gap: 60px;
+ }
+
+ .sh-title {
+     font-family: 'Playfair Display', serif;
+     font-size: clamp(2.5rem, 5vw, 5rem);
+     line-height: 1;
+     color: var(--dark);
+     margin: 0;
+ }
+
+ .sh-word {
+     display: block;
+     transform: translateY(100px);
+     opacity: 0;
+     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+ }
+
+ .sh-title .italic {
+     font-style: italic;
+     font-weight: 400;
+     padding-left: 40px;
+     /* Staggered effect */
+ }
+
+ .sh-description {
+     max-width: 400px;
+     transform: translateY(30px);
+     opacity: 0;
+     transition: all 0.8s 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+ }
+
+ .sh-description p {
+     font-size: 1.1rem;
+     line-height: 1.6;
+     color: #666;
+     margin: 0;
+ }
+
+ /* --- ANIMATION TRIGGER --- */
+ .section-title.is-visible .sh-line {
+     width: 100px;
+ }
+
+ .section-title.is-visible .sh-word {
+     transform: translateY(0);
+     opacity: 1;
+ }
+
+ .section-title.is-visible .sh-description {
+     transform: translateY(0);
+     opacity: 1;
+ }
+
+ /* --- MOBILE --- */
+ @media (max-width: 1024px) {
+     .sh-main {
+         grid-template-columns: 1fr;
+         gap: 30px;
+     }
+
+     .sh-title .italic {
+         padding-left: 0;
+     }
+
+     .sh-description {
+         max-width: 100%;
+     }
+
+     .sh-container {
+         padding: 0 30px;
+     }
+ }
