@@ -1,0 +1,164 @@
+---
+import "../../../src/assets/style/cta.css";
+---
+
+<section class="final-contact-area">
+  <!-- TOP INFO BAR -->
+  <div class="contact-info-bar" id="infoBarTrigger">
+    <div class="info-tile">
+      <div class="info-icon">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle
+            cx="12"
+            cy="10"
+            r="3"></circle></svg
+        >
+      </div>
+      <div class="info-text">
+        <span>NOTRE ADRESSE</span>
+        <p>Rue des Trois Rivages, 39, 4020 Liège</p>
+      </div>
+    </div>
+
+    <div class="info-tile">
+      <div class="info-icon">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          ><path
+            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+          ></path><polyline points="22,6 12,13 2,6"></polyline></svg
+        >
+      </div>
+      <div class="info-text">
+        <span>ADRESSE E-MAIL</span>
+        <p>info@ventdebout.be</p>
+      </div>
+    </div>
+
+    <div class="info-tile">
+      <div class="info-icon">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          ><rect x="2" y="7" width="20" height="15" rx="2" ry="2"
+          ></rect><polyline points="17 2 12 7 7 2"></polyline></svg
+        >
+      </div>
+      <div class="info-text">
+        <span>HEURES D'OUVERTURE</span>
+        <p>Lun-Ven: 9h - 18h</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP & FLOATING FORM CONTAINER -->
+  <div class="interactive-map-zone" id="mapZoneTrigger">
+    <!-- The Full Width Map -->
+    <div class="map-bg-wrapper" id="mapMain">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.206460375395!2d5.651647799999999!3d50.6604271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f10f68d0bc25%3A0xaca5c434c8c899f2!2sRue%20des%20Trois%20Rivages%2039%2C%204020%20Li%C3%A8ge%2C%20Belgium!5e0!3m2!1sen!2sma!4v1777730588622!5m2!1sen!2sma"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      >
+      </iframe>
+      <div class="map-overlay-shade"></div>
+      <div class="mobile-map-hint">CLIQUER POUR ACTIVER LA CARTE</div>
+    </div>
+
+    <!-- THE FLOATING CARD (The WOW) -->
+    <div class="floating-form-shard" id="formCardReveal">
+      <div class="shard-inner">
+        <div class="shard-header">
+          <h3>Contactez notre équipe</h3>
+          <div class="h-line"></div>
+          <p>
+            Confiez-nous votre projet ou posez vos questions en toute
+            confidentialité.
+          </p>
+        </div>
+
+        <form class="shard-form">
+          <input type="text" placeholder="Nom complet" required />
+          <input type="email" placeholder="Adresse e-mail" required />
+          <input type="text" placeholder="Sujet" />
+          <textarea placeholder="Écrire un message..." rows="4"></textarea>
+
+          <button type="submit" class="shard-submit">
+            <span>ENVOYER LE MESSAGE</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+            >
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  // Register GSAP ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. INFO BAR: STAGGER ENTRANCE
+  gsap.to(".info-tile", {
+    scrollTrigger: {
+      trigger: "#infoBarTrigger",
+      start: "top 90%",
+    },
+    y: 0,
+    opacity: 1,
+    stagger: 0.15,
+    duration: 1,
+    ease: "power3.out",
+  });
+
+  // 2. FORM CARD: RISING REVEAL
+  gsap.to("#formCardReveal", {
+    scrollTrigger: {
+      trigger: "#mapZoneTrigger",
+      start: "top 75%",
+    },
+    y: 0,
+    opacity: 1,
+    duration: 1.5,
+    ease: "expo.out",
+  });
+
+  // 3. MAP ZONE: COLOR REVEAL ON SCROLL
+  gsap.to("#mapMain", {
+    scrollTrigger: {
+      trigger: "#mapZoneTrigger",
+      start: "top 50%",
+      end: "bottom 50%",
+      onEnter: () =>
+        document.getElementById("mapMain").classList.add("is-active"),
+      onLeaveBack: () =>
+        document.getElementById("mapMain").classList.remove("is-active"),
+    },
+  });
+
+  // 4. MAP INTERACTION LOGIC (Avoid Map Trap)
+  const mapWrapper = document.getElementById("mapMain");
+  mapWrapper.addEventListener("click", function () {
+    this.classList.add("is-active");
+    this.style.pointerEvents = "auto";
+  });
+</script>

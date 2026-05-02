@@ -4,6 +4,7 @@ import OurValues from "../components/home/our-values.astro";
 import OurTeam from "../components/home/our-team.astro";
 import Partners from "../components/home/our_partners.astro";
 import About from "../components/home/about.astro";
+import CTA from "../components/home/cta.astro";
 import SectionTitle from "../components/section-title.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -52,5 +53,62 @@ import Layout from "../layouts/Layout.astro";
   </div>
 `}
   />
-  <Partners/>
+  <Partners />
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">Connectez-vous</span>
+      <span class="sh-word italic">Avec Nous</span>
+    </h2>
+    <div class="sh-description">
+      <p>Nous sommes à seulement un message. Parlez-nous de votre projet et nous vous répondrons sous 24 heures.</p>
+    </div>
+  </div>
+`}
+  />
+  <CTA />
+
+  <script>
+    function setContactAreaMargin() {
+      // Check if we're on desktop (1025px and above)
+      if (window.innerWidth >= 1025) {
+        const floatingForm = document.querySelector(".floating-form-shard");
+        const contactArea = document.querySelector(".final-contact-area");
+
+        if (floatingForm && contactArea) {
+          // Get height of .floating-form-shard
+          const formHeight = floatingForm.offsetHeight;
+
+          // Divide by 2 and add 100
+          const marginBottom = formHeight / 2 + 100;
+
+          // Set the result as margin-bottom on .final-contact-area
+          contactArea.style.marginBottom = marginBottom + "px";
+        }
+      } else {
+        // Reset margin on mobile/tablet
+        const contactArea = document.querySelector(".final-contact-area");
+        if (contactArea) {
+          contactArea.style.marginBottom = "";
+        }
+      }
+    }
+
+    // Run on load
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", setContactAreaMargin);
+    } else {
+      setContactAreaMargin();
+    }
+
+    // Run on resize with debounce
+    let resizeTimeout;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        setContactAreaMargin();
+      }, 250);
+    });
+  </script>
 </Layout>

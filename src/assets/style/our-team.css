@@ -1,10 +1,16 @@
 .team-responsive-wrapper {
     position: relative;
     background: #FFFFFF;
-    width: calc(100% - var(--sidebar-w));
+    width: 100%;
     padding-top: 80px;
     padding-left: var(--sidebar-w);
     overflow: hidden;
+}
+
+@media (min-width: 1025px) {
+    .team-responsive-wrapper {
+        width: calc(100% - var(--sidebar-w)) !important;
+    }
 }
 
 /* --- MAGNETIC FOLLOWER --- */
@@ -145,7 +151,7 @@
 
 @media (max-width: 480px) {
     .team-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .team-member {

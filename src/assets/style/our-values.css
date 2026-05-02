@@ -1,11 +1,18 @@
 .pillars-architectural {
     background: #FFFFFF;
     height: 100vh;
-    width: calc(100% - var(--sidebar-w));
+    width: 100%;
     padding-left: var(--sidebar-w);
     padding-top: 80px;
     overflow: hidden;
 }
+
+ @media (min-width: 1025px) {
+    .pillars-architectural{
+         width: calc(100% - var(--sidebar-w)) !important;
+     }
+ }
+
 
 .pillars-wrapper {
     display: flex;

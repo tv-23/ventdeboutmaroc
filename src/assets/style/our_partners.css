@@ -1,6 +1,6 @@
 .partners-stack-area {
     background: #FFFFFF;
-    padding: 50px 10% 150px calc(var(--sidebar-w) + 80px);
+    padding: 50px 10% 0px calc(var(--sidebar-w) + 80px);
     overflow: hidden;
 }
 

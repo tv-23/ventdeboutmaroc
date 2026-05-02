@@ -1,5 +1,6 @@
 ---
 import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <!doctype html>
@@ -13,10 +14,12 @@ import Header from "../components/header.astro";
     <title>Astro Basics</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Inter:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap"
       rel="stylesheet"
     />
+
     <script
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
@@ -29,12 +32,14 @@ import Header from "../components/header.astro";
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
 <style>
   :root {
     --primary: #c27858;
+    --secondary: #3e5872;
     --dark: #0f0f0f;
     --light: #f4f4f4;
     --sidebar-w: 120px;

@@ -1,0 +1,271 @@
+ .final-contact-area {
+     background: #FFFFFF;
+     width: 100%;
+     padding-top: 80px;
+     padding-left: var(--sidebar-w);
+     position: relative;
+ }
+
+ @media (min-width: 1025px) {
+     .final-contact-area {
+         width: calc(100% - var(--sidebar-w)) !important;
+     }
+ }
+
+ /* --- INFO BAR --- */
+ .contact-info-bar {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     padding: 80px;
+     background: #FFF;
+     border-top: 1px solid #F0F0F0;
+ }
+
+ .info-tile {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     opacity: 0;
+     transform: translateY(20px);
+ }
+
+ .info-icon {
+     width: 45px;
+     height: 45px;
+     background: #F9F7F3;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: var(--primary);
+ }
+
+ .info-icon svg {
+     width: 20px;
+ }
+
+ .info-text span {
+     font-size: 0.6rem;
+     font-weight: 900;
+     letter-spacing: 2px;
+     color: #AAA;
+     display: block;
+     margin-bottom: 5px;
+ }
+
+ .info-text p {
+     font-size: 0.85rem;
+     font-weight: 900;
+     color: var(--secondary);
+     margin: 0;
+ }
+
+ /* --- MAP ZONE --- */
+ .interactive-map-zone {
+     position: relative;
+     width: 100%;
+     height: 100vh;
+     overflow: visible;
+     background: #f4f4f4;
+ }
+
+ .map-bg-wrapper {
+     width: 100%;
+     height: 100%;
+     filter: grayscale(100%);
+     transition: filter 1s ease;
+     position: relative;
+     z-index: 1;
+     pointer-events: none;
+     /* Disable map interaction initially to allow scrolling */
+ }
+
+ .map-bg-wrapper.is-active {
+     filter: grayscale(0);
+     pointer-events: auto;
+ }
+
+ .map-overlay-shade {
+     position: absolute;
+     inset: 0;
+     background: rgba(27, 43, 58, 0.05);
+     pointer-events: none;
+ }
+
+ .mobile-map-hint {
+     display: none;
+     position: absolute;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     background: var(--secondary);
+     color: white;
+     padding: 10px 20px;
+     font-size: 0.6rem;
+     font-weight: 900;
+     letter-spacing: 2px;
+     z-index: 5;
+     pointer-events: none;
+ }
+
+ /* --- FORM CARD (The Shard) --- */
+ .floating-form-shard {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -15%);
+     /* Centered and overlapping */
+     width: 100%;
+     max-width: 750px;
+     z-index: 10;
+     opacity: 0;
+ }
+
+ .shard-inner {
+     background: var(--secondary);
+     padding: 60px;
+     color: white;
+     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+ }
+
+ .shard-header h3 {
+     font-family: 'Playfair Display';
+     font-size: 2.2rem;
+     margin-bottom: 15px;
+ }
+
+ .h-line {
+     width: 60px;
+     height: 2px;
+     background: var(--primary);
+     margin-bottom: 40px;
+ }
+
+ .shard-header p {
+     font-size: 0.9rem;
+     opacity: 0.6;
+     margin-bottom: 40px;
+     line-height: 1.6;
+ }
+
+ /* FORM STYLES */
+ .shard-form {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
+ .input-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
+ }
+
+ .shard-form input,
+ .shard-form textarea {
+     max-width: 100%;
+     padding: 16px 20px;
+     background: rgba(255, 255, 255, 0.03);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     color: white;
+     font-family: inherit;
+     outline: none;
+     transition: all 0.3s;
+ }
+
+ .shard-form input:focus {
+     border-color: var(--primary);
+     background: rgba(255, 255, 255, 0.07);
+ }
+
+ .shard-submit {
+     width: 100%;
+     padding: 22px;
+     background: var(--primary);
+     border: none;
+     color: white;
+     font-weight: 900;
+     letter-spacing: 3px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 15px;
+     transition: all 0.4s;
+     margin-top: 10px;
+ }
+
+ .shard-submit:hover {
+     background: #FFF;
+     color: var(--secondary);
+ }
+
+
+ /* --- MOBILE RESPONSIVE (Perfect Refinement) --- */
+ @media (max-width: 1024px) {
+     .final-contact-area {
+         padding-left: 0;
+     }
+
+     .contact-info-bar {
+         grid-template-columns: 1fr;
+         gap: 40px;
+         padding: 60px 30px;
+     }
+
+     .info-tile {
+         opacity: 1;
+         transform: none;
+     }
+
+     .interactive-map-zone {
+         height: auto;
+         display: flex;
+         flex-direction: column;
+     }
+
+     .map-bg-wrapper {
+         height: 400px;
+         order: 2;
+         filter: grayscale(0);
+         pointer-events: none;
+     }
+
+     .map-bg-wrapper.is-active {
+         pointer-events: auto;
+     }
+
+     .mobile-map-hint {
+         display: block;
+     }
+
+     .floating-form-shard {
+         position: relative;
+         top: 0;
+         left: 0;
+         transform: none;
+         max-width: 100%;
+         order: 1;
+         opacity: 1;
+     }
+
+     .shard-inner {
+         clip-path: none;
+         padding: 50px 30px;
+         box-shadow: none;
+     }
+
+     .input-row {
+         grid-template-columns: 1fr;
+     }
+
+     .sf-right {
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+     }
+
+     .sf-right a {
+         margin-left: 0;
+     }
+ }
