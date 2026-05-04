@@ -1,0 +1,104 @@
+---
+import "../../src/assets/style/footer.css";
+---
+
+<footer class="site-footer" id="footerTrigger">
+  <!-- Huge Parallax Watermark (Z-index 0) -->
+  <!-- <div class="footer-bg-text" id="footerWatermark">MAROC</div> -->
+
+  <div class="footer-container">
+    <!-- Column 1: Brand -->
+    <div class="f-col branding-col">
+      <div class="f-logo-wrap">
+        <img
+          src="https://static.wixstatic.com/media/60ae4a_58b08ed5f7f84b79984c920082b87558~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_-modified.png"
+          alt="Logo"
+          class="f-logo"
+        />
+        <div class="f-brand-text">
+          <span class="f-main">VENT DEBOUT</span>
+          <span class="f-sub">MAROC</span>
+        </div>
+      </div>
+      <p class="f-tagline">
+        Partir... pour se rencontrer. Séjour de rupture éducatif au cœur de la
+        province de Larache.
+      </p>
+    </div>
+
+    <!-- Column 2: Navigation -->
+    <div class="f-col links-col">
+      <span class="f-label">MENU</span>
+      <ul class="f-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Prise en charge</a></li>
+        <li><a href="#">Activités</a></li>
+        <li><a href="#">Actualités</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Network -->
+    <div class="f-col links-col">
+      <span class="f-label">RÉSEAU</span>
+      <ul class="f-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Top Shard -->
+    <div class="f-col shard-col">
+      <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 100 100">
+          <path d="M50,0 L100,50 L50,100 L0,50 Z" fill="currentColor"></path>
+        </svg>
+        <span>TOP</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom-bar">
+    <div class="sig-line"></div>
+    <div class="sig-content">
+      <div class="copy">© 2024 VENT DEBOUT ASBL</div>
+      <div class="designer">DESIGNED FOR IMPACT</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Reveal Columns on Arrival
+  gsap.from(".f-col", {
+    scrollTrigger: {
+      trigger: "#footerTrigger",
+      start: "top 85%", // Animation starts when footer is 85% visible
+    },
+    y: 40,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 1,
+    ease: "power3.out",
+  });
+
+  // 2. Parallax Watermark movement
+  gsap.to("#footerWatermark", {
+    scrollTrigger: {
+      trigger: "#footerTrigger",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2, // Smooth follow
+    },
+    x: 150,
+    ease: "none",
+  });
+
+  // 3. Back to Top Smooth Scroll
+  document.getElementById("backToTop").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

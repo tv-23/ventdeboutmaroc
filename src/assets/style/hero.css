@@ -61,7 +61,7 @@
  }
 
  .huge-title {
-     font-family: 'Playfair Display', serif;
+     font-family: "Big Shoulders", cursive;
      font-size: 15vw;
      line-height: 0.8;
      text-transform: uppercase;
@@ -136,7 +136,7 @@
      }
 
      .sub-headline {
-         bottom: 40px;
+         top: 80%;
          left: 0;
          right: 0;
          width: 100%;

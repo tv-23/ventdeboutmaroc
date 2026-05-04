@@ -1,0 +1,27 @@
+---
+import "../../src/assets/style/section-title.css";
+const { content } = Astro.props;
+---
+
+<div class="section-title">
+    <div class="sh-container" set:html={content} />
+</div>
+
+<script>
+    // Intersection Observer to trigger "WOW" animations when section enters view
+    const observerOptions = {
+        threshold: 0.3
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-title').forEach(header => {
+        sectionObserver.observe(header);
+    });
+</script>

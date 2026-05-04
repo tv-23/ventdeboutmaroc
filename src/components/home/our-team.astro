@@ -1,0 +1,110 @@
+---
+import "../../../src/assets/style/our-team.css";
+---
+
+<section class="team-responsive-wrapper" id="the-team">
+    <!-- Custom Name Follower (Desktop Only) -->
+    <div class="name-follower" id="nameFollower">
+        <div class="nf-inner">
+            <span id="nf-name">NOM</span>
+            <span id="nf-role">ROLE</span>
+        </div>
+    </div>
+
+    <div class="team-layout" id="teamTarget">
+        <!-- 12 Members -->
+        <div class="team-member" data-name="Xavier WILLEMS" data-role="DIRECTEUR">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Xavier WILLEMS</h4><p>DIRECTEUR</p></div>
+        </div>
+        <div class="team-member" data-name="Tania SPITZ" data-role="PSYCHOLOGUE">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Tania SPITZ</h4><p>PSYCHOLOGUE</p></div>
+        </div>
+        <div class="team-member" data-name="Said AMGRAR" data-role="COORDONNATEUR">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Said AMGRAR</h4><p>COORDONNATEUR</p></div>
+        </div>
+        <div class="team-member" data-name="Zoé BALDEWYNS" data-role="ÉDUCATRICE">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Zoé BALDEWYNS</h4><p>ÉDUCATRICE</p></div>
+        </div>
+        <div class="team-member" data-name="Arthur PAGLIA" data-role="PSYCHOLOGUE">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Arthur PAGLIA</h4><p>PSYCHOLOGUE</p></div>
+        </div>
+        <div class="team-member" data-name="Hanane BOUALAM" data-role="RÉFÉRENTE">
+            <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Hanane BOUALAM</h4><p>RÉFÉRENTE</p></div>
+        </div>
+        <div class="team-member" data-name="Naoufel EL OUADOUDI" data-role="RÉFÉRENT">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Naoufel EL OUADOUDI</h4><p>RÉFÉRENT</p></div>
+        </div>
+        <div class="team-member" data-name="Amine HILALI" data-role="RÉFÉRENT">
+            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c78?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Amine HILALI</h4><p>RÉFÉRENT</p></div>
+        </div>
+        <div class="team-member" data-name="Firdaws BEIDOURI" data-role="RÉFÉRENTE">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Firdaws BEIDOURI</h4><p>RÉFÉRENTE</p></div>
+        </div>
+        <div class="team-member" data-name="Ayoub LAMZOURI" data-role="RÉFÉRENT">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Ayoub LAMZOURI</h4><p>RÉFÉRENT</p></div>
+        </div>
+        <div class="team-member" data-name="Jaafar AZLI" data-role="RÉFÉRENT">
+            <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Jaafar AZLI</h4><p>RÉFÉRENT</p></div>
+        </div>
+        <div class="team-member" data-name="Ziad NAKHICHA" data-role="RÉFÉRENT">
+            <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800" alt="">
+            <div class="mobile-info"><h4>Ziad NAKHICHA</h4><p>RÉFÉRENT</p></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const follower = document.getElementById('nameFollower');
+    const nfName = document.getElementById('nf-name');
+    const nfRole = document.getElementById('nf-role');
+    const members = document.querySelectorAll('.team-member');
+
+    // 1. ANIMATION: START WHEN ARRIVE
+    gsap.to(".team-member", {
+        scrollTrigger: {
+            trigger: ".team-layout",
+            start: "top 80%", // Starts when the top of the grid is 80% down the screen
+        },
+        y: 0,
+        opacity: 1,
+        stagger: 0.08, // One by one reveal
+        duration: 1.2,
+        ease: "power4.out"
+    });
+
+    // 2. MAGNETIC CURSOR (Desktop Only)
+    if(window.innerWidth > 1024) {
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(follower, {
+                x: e.clientX - 80,
+                y: e.clientY - 80,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        members.forEach(member => {
+            member.addEventListener('mouseenter', () => {
+                nfName.innerText = member.getAttribute('data-name');
+                nfRole.innerText = member.getAttribute('data-role');
+                gsap.to(follower, { opacity: 1, scale: 1, duration: 0.3 });
+            });
+            member.addEventListener('mouseleave', () => {
+                gsap.to(follower, { opacity: 0, scale: 0, duration: 0.3 });
+            });
+        });
+    }
+</script>

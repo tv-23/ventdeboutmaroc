@@ -1,0 +1,97 @@
+---
+import "../../../src/assets/style/about.css";
+---
+
+<section class="about-gallery" id="about">
+    <!-- Large Background Architectural Text -->
+    <div class="gallery-container">
+        <!-- 01. THE STORY (70% WIDTH) -->
+        <div class="story-anchor">
+            
+            <h2 class="title-reveal">
+                QUI SOMMES-NOUS ET <br>
+                <span class="clay-text">QUE FAISONS-NOUS ?</span>
+            </h2>
+            
+            <div class="story-content">
+                <p class="lead-text">
+                   Agréée et subsidiée par la Fédération Wallonie-Bruxelles dans le cadre de l'Aide à la Jeunesse, l'asbl « Vent Debout » dans le service « Vent Debout - Maroc » propose à des adolescent.e.s de 15 à 18 ans et qui résident sur le territoire de la fédération Wallonie-Bruxelles, un séjour éducatif de rupture au Maroc sur mandat de l'Aide à la Jeunesse (un dossier doit être ouvert dans l'un de ces trois services : SAJ - SPJ - Tribunal de la jeunesse). Ces adolescent.e.s sont souvent fragilisé.e.s par diverses problématiques :  la délinquance, le décrochage scolaire, le harcèlement, des relations familiales conflictuelles, etc.. L'objectif est de rompre avec leur quotidien en se rendant utile auprès de la société marocaine durant 10 à 12 semaines pour prendre conscience de leurs ressources et de leurs capacités.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- 02. THE FLOATING PORTAL (30% WIDTH) -->
+        <div class="portal-wrapper">
+            <div class="floating-portal" id="portalFrame">
+                <div class="portal-inner">
+                    <div class="portal-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop" alt="Expéditions">
+                    </div>
+                    
+                    <div class="portal-info">
+                        <span class="tag">PARTENAIRE PORTAL</span>
+                        <h3>VENT DEBOUT<br>EXPÉDITIONS</h3>
+                        <a href="https://www.ventdebout.be" target="_blank" class="circle-link">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+=            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // 1. Title Reveal Animation
+    gsap.from(".title-reveal", {
+        scrollTrigger: {
+            trigger: ".about-gallery",
+            start: "top 70%",
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+    });
+
+    // 2. 3D Tilt Logic for the Portal (Desktop Only)
+    const portalFrame = document.getElementById('portalFrame');
+    const portalInner = portalFrame.querySelector('.portal-inner');
+
+    if (window.innerWidth > 1024) {
+        document.addEventListener("mousemove", (e) => {
+            const { clientX, clientY } = e;
+            const rect = portalFrame.getBoundingClientRect();
+            
+            // Calculate tilt based on mouse position relative to card center
+            const x = (clientX - (rect.left + rect.width / 2)) * 0.03;
+            const y = (clientY - (rect.top + rect.height / 2)) * 0.03;
+
+            gsap.to(portalInner, {
+                rotationY: x,
+                rotationX: -y,
+                transformPerspective: 1000,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+
+            // Move the background watermark text slightly (Parallax)
+            gsap.to("#aboutWatermark", {
+                x: x * -10,
+                y: y * -10,
+                duration: 1
+            });
+        });
+
+        // Reset Card on Leave
+        portalFrame.addEventListener("mouseleave", () => {
+            gsap.to(portalInner, { 
+                rotationY: 0, 
+                rotationX: 0, 
+                duration: 1.5, 
+                ease: "elastic.out(1, 0.3)" 
+            });
+        });
+    }
+</script>
