@@ -1,0 +1,83 @@
+---
+import "../../../src/assets/style/rift-ribbon.css";
+---
+
+<section class="farm-rift-section" id="farmSection">
+    <div class="rift-wrapper">
+        
+        <!-- Left Side: Fixed Story -->
+        <div class="rift-story-side">
+            <div class="story-inner">
+                <span class="s-tag">IMMERSION</span>
+                <p>Le Cheval de l'Espoir dispose d'une ferme située dans un petit village au nord de Larache. Cette ferme est entretenue par deux de nos éducateurs et les jeunes qui y logent en alternance. Durant leur passage à la ferme ces jeunes participeront aux tâches ménagères quotidiennes (achats au marché local, lessives, nettoyage des lieux de vie, cuisine et vaisselle...) mais également à l'ensemble des tâches que nécessite le bon fonctionnement d'une ferme comme :</p>
+                <!-- <p class="s-sub">Durant leur passage, les jeunes participent aux tâches ménagères et à la vie du lieu pour reprendre conscience de leurs capacités.</p> -->
+            </div>
+        </div>
+
+        <!-- Right Side: The Moving Ribbon -->
+        <div class="rift-window-side">
+            <div class="horizontal-track" id="farmTrack">
+                
+                <!-- Slide 01 -->
+                <div class="farm-slide">
+                    <div class="slide-numb">01</div>
+                    <div class="slide-image">
+                        <img src="https://static.wixstatic.com/media/60ae4a_8de2c96075f54dc381d71d356382fc8c~mv2.jpg/v1/fill/w_460,h_350,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ferme%20et%20potager.jpg" alt="">
+                    </div>
+                    <div class="slide-title">
+                        <h4>LA GESTION DES CULTURES POTAGÈRES</h4>
+                        <!-- <span class="serif">CULTURES POTAGÈRES</span> -->
+                    </div>
+                </div>
+
+                <!-- Slide 02 -->
+                <div class="farm-slide">
+                    <div class="slide-numb">02</div>
+                    <div class="slide-image">
+                        <img src="https://static.wixstatic.com/media/60ae4a_313da6158cbb4157b2d5249473ff4fdc~mv2.jpeg/v1/fill/w_460,h_350,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202022-09-26%20at%2010_30_53%20(5).jpeg" alt="">
+                    </div>
+                    <div class="slide-title">
+                        <h4>L'ENTRETIEN DU BÂTIMENT</h4>
+                        <!-- <span class="serif">L'ENTRETIEN DU BÂTIMENT</span> -->
+                    </div>
+                </div>
+
+                <!-- Slide 03 -->
+                <div class="farm-slide">
+                    <div class="slide-numb">03</div>
+                    <div class="slide-image">
+                        <img src="https://static.wixstatic.com/media/60ae4a_843a41cb15454af09a88f0833c021b46~mv2.jpeg/v1/fill/w_460,h_350,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202022-10-20%20at%2011_48_03.jpeg" alt="">
+                    </div>
+                    <div class="slide-title">
+                        <h4>CONSTRUCTIONS DIVERSES À BASE DE MATÉRIAUX RECYCLÉS</h4>
+                        <!-- <span class="serif">CONSTRUCTIONS DIVERSES À BASE DE MATÉRIAUX RECYCLÉS</span> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const track = document.getElementById('farmTrack');
+    const section = document.getElementById('farmSection');
+
+    if (window.innerWidth > 1024) {
+        // Create the Horizontal Scroll Effect
+        gsap.to(track, {
+            x: () => -(track.scrollWidth - window.innerWidth + window.innerWidth * 0.35), // Accounting for the fixed left side
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1, // Interaction based on scroll speed
+                invalidateOnRefresh: true,
+            }
+        });
+    }
+</script>

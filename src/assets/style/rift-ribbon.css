@@ -1,0 +1,182 @@
+ .farm-rift-section {
+     background: #FFFFFF;
+width: calc(100% - var(--sidebar-w)) !important;     height: 300vh;
+     /* Deep vertical space for horizontal scroll */
+     padding-left: var(--sidebar-w);
+     position: relative;
+ }
+
+ .rift-wrapper {
+     position: sticky;
+     top: 0;
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     overflow: hidden;
+ }
+
+ /* --- LEFT STORY (STAYS FIXED) --- */
+ .rift-story-side {
+     flex: 0 0 35%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     padding: 0 50px 0 80px;
+     border-right: 1px solid #F0F0F0;
+     z-index: 10;
+     background: #FFF;
+ }
+
+ .story-inner {
+     /* max-width: 350px; */
+ }
+
+ .s-tag {
+     font-size: 0.65rem;
+     font-weight: 900;
+     letter-spacing: 4px;
+     color: var(--primary);
+     display: block;
+     margin-bottom: 30px;
+ }
+
+ .story-inner p {
+     font-size: 1.2rem;
+     line-height: 1.3;
+     font-weight: 900;
+     color: var(--dark);
+     margin-bottom: 30px;
+ }
+
+ .story-inner .s-sub {
+     font-size: 0.95rem;
+     font-weight: 400;
+     color: #888;
+     line-height: 1.6;
+ }
+
+ /* --- RIGHT TRACK --- */
+ .rift-window-side {
+     flex: 1;
+     height: 100%;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .horizontal-track {
+     display: flex;
+     height: 100%;
+     align-items: center;
+     padding-left: 100px;
+     will-change: transform;
+ }
+
+ .farm-slide {
+     flex: 0 0 600px;
+     margin-right: 150px;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .slide-numb {
+     font-family: 'Playfair Display';
+     font-size: 8rem;
+     font-weight: 900;
+     color: rgba(0, 0, 0, 0.03);
+     position: absolute;
+     top: -60px;
+     left: -40px;
+     z-index: 0;
+ }
+
+ .slide-image {
+     width: 100%;
+     aspect-ratio: 4/3;
+     overflow: hidden;
+     border: 1px solid #F0F0F0;
+     z-index: 1;
+ }
+
+ .slide-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.8s;
+ }
+
+ .farm-slide:hover .slide-image img {
+     transform: scale(1.05);
+ }
+
+ .slide-title {
+     margin-top: 30px;
+ }
+
+ .slide-title h4 {
+font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--primary);
+    margin-bottom: 5px;
+ }
+
+ .slide-title .serif {
+     font-family: 'Playfair Display';
+     font-weight: 900;
+     font-size: 1.8rem;
+     color: var(--dark);
+     transition: color 0.3s;
+ }
+
+ .farm-slide:hover .serif {
+     color: var(--primary);
+ }
+
+ /* --- MOBILE --- */
+ @media (max-width: 1024px) {
+     .farm-rift-section {
+         height: auto;
+         padding-left: 0;
+     }
+
+     .rift-wrapper {
+         position: relative;
+         height: auto;
+         flex-direction: column;
+     }
+
+     .rift-story-side {
+         flex: none;
+         width: 100%;
+         padding: 60px 30px;
+         border-right: none;
+         border-bottom: 1px solid #EEE;
+     }
+
+     .rift-window-side {
+         overflow: visible;
+     }
+
+     .horizontal-track {
+         flex-direction: column;
+         padding: 60px 30px;
+         gap: 80px;
+         transform: none !important;
+     }
+
+     .farm-slide {
+         flex: none;
+         width: 100%;
+         margin-right: 0;
+     }
+
+     .slide-numb {
+         font-size: 4rem;
+         top: -30px;
+     }
+
+     .slide-title .serif {
+         font-size: 1.4rem;
+     }
+ }

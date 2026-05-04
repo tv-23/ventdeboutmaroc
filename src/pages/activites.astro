@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import SectionTitle from "../components/section-title.astro";
+import RiftRibbon from "../components/activites/rift-ribbon.astro";
+import SolidarityActivities from "../components/activites/solidarity-activities.astro";
+---
+
+<Layout>
+    <PageHeader LeftyTitle="LES" RightyTitle="ACTIVITÉS" />
+    <SectionTitle
+        content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">NOTRE FERME</span>
+      <span class="sh-word italic">PÉDAGOGIQUE</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+    />
+    <RiftRibbon />
+    <SectionTitle
+        content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">DES ACTIVITÉS</span>
+      <span class="sh-word italic">SOLIDAIRES</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+    />
+    <SolidarityActivities />
+</Layout>

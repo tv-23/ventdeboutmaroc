@@ -1,0 +1,165 @@
+---
+import "../../../src/assets/style/solidarity-activities.css";
+---
+
+<section class="rift-gallery-area">
+    <div class="gallery-split">
+        
+        <!-- LEFT: THE TEXT NARRATIVE -->
+        <div class="gallery-text-side">
+            <div class="g-intro-box">
+                <span class="g-tag">VIE QUOTIDIENNE</span>
+                <p>Lors de leur passage chez nos référent.e.s d'accueil, les jeunes participeront activement à la vie familiale  quotidienne : faire les courses, préparer les repas, faire les lessives, faire le ménage, participer aux fêtes familiales, aux loisirs, .... Et ils pourront également se rendre utile auprès de la société marocaine grâce à nos partenariats avec diverses associations locales.</p>
+                <!-- <div class="g-line"></div> -->
+                <!-- <p class="g-sub">Ils pourront également se rendre utile auprès de la société marocaine grâce à nos partenariats avec diverses associations locales.</p> -->
+            </div>
+        </div>
+
+        <!-- RIGHT: THE KINETIC SLIDER -->
+        <div class="gallery-slider-side">
+            <!-- Ghost Background Text -->
+            <div class="g-ghost-text" id="gGhost">MOUVEMENT</div>
+
+            <div class="g-slider-container" id="gSlider">
+                
+                <!-- Slide 01 -->
+                <div class="g-slide active" data-title="AIDE AU SEIN D'UN CENTRE PLURIDISCIPLINAIRE POUR ENFANTS PORTEURS DE HANDICAP">
+                    <div class="g-image-frame">
+                        <img src="https://static.wixstatic.com/media/60ae4a_d90842122c9a43bb9bfa4c54523b5f3c~mv2.jpg/v1/fill/w_940,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- Slide 02 -->
+                <div class="g-slide" data-title="AIDE AU SEIN DE L'ORPHELINAT DE LARACHE">
+                    <div class="g-image-frame">
+                        <img src="https://static.wixstatic.com/media/60ae4a_330f80327d26403886e6c683394f0fea~mv2.jpg/v1/crop/x_0,y_186,w_4128,h_2107/fill/w_940,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/20180404_174355.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- Slide 03 -->
+                <div class="g-slide" data-title="AIDE AU SEIN DE L'UNION D'ACTIONS FÉMININE DE LARACHE">
+                    <div class="g-image-frame">
+                        <img src="https://static.wixstatic.com/media/60ae4a_6b0f5054285041daab6388fa17c5bfb3~mv2.jpg/v1/fill/w_532,h_272,al_c,q_80,enc_avif,quality_auto/atelier%20cuisine%20UAF_jfif.jpg" alt="">
+                    </div>
+                </div>
+
+                 <div class="g-slide" data-title="AIDE AUX BÉNÉFICIAIRES DE « WIFAQ » (CENTRE DE JOUR POUR ENFANTS PORTEURS DE HANDICAP)">
+                    <div class="g-image-frame">
+                        <img src="https://static.wixstatic.com/media/60ae4a_f4ec60457b0842e694f0396c1c6064e3~mv2.png/v1/fill/w_211,h_108,al_c,lg_1,q_85,enc_avif,quality_auto/Wifaq_edited.png" alt="">
+                    </div>
+                </div>
+
+                 <div class="g-slide" data-title="CAMPAGNES DE RAMASSAGE DE DÉCHETS SUR LES PLAGES DE LARACHE">
+                    <div class="g-image-frame">
+                        <img src="https://static.wixstatic.com/media/60ae4a_1bb8c4886af7426ab9f98319133bb93d~mv2.jpeg/v1/fill/w_940,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nettoyage%20plage.jpeg" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- THE TITLE (Under the image) -->
+            <div class="g-caption-area">
+                <div class="caption-overflow">
+                    <h3 id="slideTitle">RAMASSAGE DE DÉCHETS SUR LES PLAGES</h3>
+                </div>
+                <div class="g-nav-controls">
+                    <button class="g-nav-btn" id="gPrev">←</button>
+                    <button class="g-nav-btn" id="gNext">→</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    const slides = document.querySelectorAll('.g-slide');
+    const titleElement = document.getElementById('slideTitle');
+    const nextBtn = document.getElementById('gNext');
+    const prevBtn = document.getElementById('gPrev');
+    let current = 0;
+    let autoPlayTimer;
+    const scrollDuration = 5000; // 5 seconds per slide
+
+    function updateGallery(index) {
+        if (index === current) return;
+
+        // 1. Animate title out
+        gsap.to(titleElement, {
+            y: 30, 
+            opacity: 0, 
+            duration: 0.4, 
+            ease: "power2.in",
+            onComplete: () => {
+                // 2. Switch active classes
+                slides.forEach(s => s.classList.remove('active'));
+                slides[index].classList.add('active');
+                
+                // 3. Update text content
+                titleElement.innerText = slides[index].getAttribute('data-title');
+                
+                // 4. Animate title back in (from top for "WOW" effect)
+                gsap.fromTo(titleElement, 
+                    { y: -30, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+                );
+            }
+        });
+        current = index;
+    }
+
+    // --- AUTO SLIDER LOGIC ---
+
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(() => {
+            let next = (current + 1) % slides.length;
+            updateGallery(next);
+        }, scrollDuration);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // --- EVENT LISTENERS ---
+
+    nextBtn.addEventListener('click', () => {
+        let next = (current + 1) % slides.length;
+        updateGallery(next);
+        resetAutoPlay(); // Manual click resets the timer
+    });
+
+    prevBtn.addEventListener('click', () => {
+        let prev = (current - 1 + slides.length) % slides.length;
+        updateGallery(prev);
+        resetAutoPlay(); // Manual click resets the timer
+    });
+
+    // --- PERFORMANCE OPTIMIZATION ---
+    // Only run the auto-slider when the user is actually looking at the section
+    ScrollTrigger.create({
+        trigger: ".rift-gallery-area",
+        start: "top center",
+        onEnter: () => startAutoPlay(),
+        onLeave: () => stopAutoPlay(),
+        onEnterBack: () => startAutoPlay(),
+        onLeaveBack: () => stopAutoPlay()
+    });
+
+    // Reveal entrance for the text box on scroll
+    gsap.from(".g-intro-box", {
+        scrollTrigger: {
+            trigger: ".rift-gallery-area",
+            start: "top 70%",
+        },
+        x: -50,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+    });
+</script>
