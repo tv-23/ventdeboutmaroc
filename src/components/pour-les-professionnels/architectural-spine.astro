@@ -1,0 +1,148 @@
+---
+import "../../../src/assets/style/architectural-spine.css";
+---
+
+<section class="pulse-section" id="methodologie">
+    <!-- The Central Path Line -->
+    <div class="pulse-spine">
+        <div class="pulse-progress" id="pulseProgress"></div>
+    </div>
+
+    <div class="pulse-container">
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">01</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">COMPRÉHENSION</span>
+                <h3>Mieux comprendre le monde</h3>
+                <div class="p-text">
+                    <p>
+                        Rendre à des jeunes (pré-adolescent.e.s ou
+                        adolescent.e.s) la capacité de mieux comprendre le monde
+                        qui les entoure et de l'accepter tel qu'il est. Un des
+                        objectifs est aussi que le/la jeune s'accepte et accepte
+                        les autres avec plus d'indulgence.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">02</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">PAIX & PASSÉ</span>
+                <h3>Faire la paix avec son passé</h3>
+                <div class="p-text">
+                    <p>
+                        Permettre au/à la jeune de faire la paix avec son passé
+                        et se réapproprier un certain pouvoir sur sa vie, ses
+                        choix, ses responsabilités.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">03</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">VALORISATION</span>
+                <h3>Valoriser son rôle d'acteur</h3>
+                <div class="p-text">
+                    <p>
+                        Valoriser son rôle d'acteur en participant à un projet
+                        de vie. Reprendre en main son histoire avec une nouvelle
+                        vision, une confiance en soi afin de générer une
+                        réflexion par rapport à lui/elle-même dans son projet
+                        post-rupture.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">04</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">PRISE DE RECUL</span>
+                <h3>Désamorcer les conflits</h3>
+                <div class="p-text">
+                    <p>
+                        Donner l'opportunité de faire le point sur
+                        lui/elle-même. Le fait de provoquer un éloignement de la
+                        famille du/de la jeune permet de désamorcer une
+                        situation parfois conflictuelle, ce qui permet aux deux
+                        parties de prendre du recul et d'envisager un retour
+                        dans de meilleures conditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">05</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">EXPÉRIENCE POSITIVE</span>
+                <h3>Renouer avec une expérience positive</h3>
+                <div class="p-text">
+                    <p>
+                        Inciter le/la jeune à renouer avec une expérience
+                        positive. Réussir un défi dans lequel il/elle doit se
+                        montrer solidaire et responsable (envers lui/elle ainsi
+                        qu'envers le reste du groupe).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">06</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">RUPTURE TECHNOLOGIQUE</span>
+                <h3>Des relations plus riches</h3>
+                <div class="p-text">
+                    <p>
+                        L'institution vise également une rupture technologique.
+                        Cela permet aux adolescent.e.s d'avoir une certaine
+                        stabilité dans leur rapport aux autres, qui du coup,
+                        sera beaucoup plus riche.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Line Progress Animation
+    gsap.to("#pulseProgress", {
+        scrollTrigger: {
+            trigger: ".pulse-container",
+            start: "top center",
+            end: "bottom center",
+            scrub: 1,
+        },
+        height: "100%",
+    });
+
+    // 2. Reveal Each Item
+    document.querySelectorAll(".pulse-item").forEach((item) => {
+        ScrollTrigger.create({
+            trigger: item,
+            start: window.innerWidth > 1024 ? "top 70%" : "top 80%", // Trigger slightly later on mobile
+            onEnter: () => item.classList.add("is-active"),
+            onLeaveBack: () => item.classList.remove("is-active"),
+        });
+    });
+</script>

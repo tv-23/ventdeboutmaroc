@@ -1,0 +1,104 @@
+---
+import "../../src/assets/style/page-header.css";
+const { LeftyTitle,RightyTitle } = Astro.props;
+
+---
+
+<section class="rift-hero" id="hero">
+
+    <!-- LEFT SIDE: THE TEXT WORLD -->
+    <div class="rift-side left-side">
+        <div class="rift-content">
+            <h1 class="huge-title">{LeftyTitle}</h1>
+        </div>
+    </div>
+
+
+    <!-- RIGHT SIDE: THE IMAGE WORLD -->
+    <div class="rift-side right-side">
+        <div class="image-bg"></div>
+        <div class="rift-content">
+            <h1 class="huge-title">{RightyTitle}</h1>
+        </div>
+    </div>
+
+    <!-- THE "RUPTURE" SPINE (The WOW Line) -->
+    <div class="rupture-spine" id="spine">
+        <svg viewBox="0 0 100 1000" preserveAspectRatio="none">
+            <path id="spinePath" d="M50,0 L50,1000" stroke="#C27858" stroke-width="2" fill="none" />
+        </svg>
+
+        <!-- THE LOGO ANCHOR (180x180) -->
+        <div class="logo-zipper">
+            <img src="https://static.wixstatic.com/media/60ae4a_58b08ed5f7f84b79984c920082b87558~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_-modified.png"
+                alt="Logo">
+        </div>
+    </div>
+</section>
+
+<script>
+
+    const isMobile = window.innerWidth <= 1024;
+
+    if (isMobile) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const val = scrolled * 0.5;
+
+            // The WOW Scroll Interaction:
+            // 1. Sides slide away from each other
+            gsap.to(".left-side", { y: -val, duration: 0.1 });
+            gsap.to(".right-side", { y: val, duration: 0.1 });
+
+            // 2. Logo rotates like a spinning cog during scroll
+            gsap.to(".logo-zipper", {
+                rotate: scrolled * 0.5,
+                scale: 1 + (scrolled * 0.001),
+                duration: 0.1
+            });
+
+            // 3. Titles fade out as they separate
+            gsap.to(".huge-title", { opacity: 1 - (scrolled / 500), duration: 0.1 });
+        });
+    } else {
+        const spine = document.getElementById('spine');
+        const path = document.getElementById('spinePath');
+        const logo = document.querySelector('.logo-zipper');
+
+        // 1. DYNAMIC RIFT PHYSICS
+        // As the mouse moves, the "Spine" line wobbles
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 1024) return;
+
+            const xNorm = (e.clientX / window.innerWidth - 0.5) * 100;
+            const yNorm = (e.clientY / window.innerHeight - 0.5) * 100;
+
+            // Animate the SVG path to create a "jagged wobble"
+            const targetD = `M50,0 Q${50 + xNorm},250 50,500 T50,1000`;
+
+            gsap.to(path, {
+                attr: { d: targetD },
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // Move the Logo Zipper with the wobble
+            gsap.to(logo, {
+                x: xNorm * 0.5,
+                y: yNorm * 0.2,
+                duration: 0.5
+            });
+
+            // Parallax the sides
+            gsap.to(".left-side .huge-title", { x: xNorm * -0.2, duration: 1 });
+            gsap.to(".right-side .huge-title", { x: xNorm * 0.2, duration: 1 });
+        });
+
+        // 2. ENTRANCE
+        gsap.from(".left-side", { xPercent: -100, duration: 1.5, ease: "expo.inOut" });
+        gsap.from(".right-side", { xPercent: 100, duration: 1.5, ease: "expo.inOut" }, "-=1.5");
+        gsap.from(logo, { scale: 0, rotate: 180, duration: 1.2, delay: 1, ease: "back.out(1.7)" });
+    }
+
+
+</script>
