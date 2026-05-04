@@ -54,44 +54,4 @@ import "../../../src/assets/style/about.css";
         duration: 1.2,
         ease: "power4.out"
     });
-
-    // 2. 3D Tilt Logic for the Portal (Desktop Only)
-    // const portalFrame = document.getElementById('portalFrame');
-    // const portalInner = portalFrame.querySelector('.portal-inner');
-
-    // if (window.innerWidth > 1024) {
-    //     document.addEventListener("mousemove", (e) => {
-    //         const { clientX, clientY } = e;
-    //         const rect = portalFrame.getBoundingClientRect();
-            
-    //         // Calculate tilt based on mouse position relative to card center
-    //         const x = (clientX - (rect.left + rect.width / 2)) * 0.03;
-    //         const y = (clientY - (rect.top + rect.height / 2)) * 0.03;
-
-    //         gsap.to(portalInner, {
-    //             rotationY: x,
-    //             rotationX: -y,
-    //             transformPerspective: 1000,
-    //             duration: 0.6,
-    //             ease: "power2.out"
-    //         });
-
-    //         // Move the background watermark text slightly (Parallax)
-    //         gsap.to("#aboutWatermark", {
-    //             x: x * -10,
-    //             y: y * -10,
-    //             duration: 1
-    //         });
-    //     });
-
-    //     // Reset Card on Leave
-    //     portalFrame.addEventListener("mouseleave", () => {
-    //         gsap.to(portalInner, { 
-    //             rotationY: 0, 
-    //             rotationX: 0, 
-    //             duration: 1.5, 
-    //             ease: "elastic.out(1, 0.3)" 
-    //         });
-    //     });
-    // }
 </script>

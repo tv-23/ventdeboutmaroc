@@ -122,7 +122,7 @@
  }
 
  .shard-inner {
-     background: var(--secondary);
+     background: var(--dark);
      padding: 60px;
      color: white;
      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);

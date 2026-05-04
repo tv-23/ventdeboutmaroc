@@ -2,6 +2,22 @@
 import "../../src/assets/style/header.css";
 ---
 
+
+<!-- 1. NEW TOP BAR -->
+<div class="top-header-bar">
+    <div class="top-bar-container">
+        <div class="top-left-info">
+            <a href="mailto:info@ventdebout.be"><i class="icon-email"></i> <span class="desktop-only">Email:</span> info@ventdebout.be</a>
+            <span class="divider">|</span>
+            <a href="tel:+3243416282"><i class="icon-phone"></i> <span class="desktop-only">Phone number:</span> 04/345.62.82</a>
+        </div>
+        <div class="top-right-socials">
+            <a href="#" target="_blank" title="Facebook">FB</a>
+            <a href="#" target="_blank" title="LinkedIn">LI</a>
+        </div>
+    </div>
+</div>
+
 <aside class="sidebar-brand">
     <div class="side-brand-top">
         <div class="side-brand-text">
@@ -9,8 +25,6 @@ import "../../src/assets/style/header.css";
             <span class="txt-sub">MAROC</span>
         </div>
     </div>
-
-    <!-- Full Social Names Vertical -->
     <div class="side-socials">
         <a href="#" class="s-link">FACEBOOK</a>
         <div class="s-line"></div>
@@ -18,8 +32,8 @@ import "../../src/assets/style/header.css";
     </div>
 </aside>
 
-<!-- 2. STANDALONE LOGO (Spaced away from Sidebar) -->
 <div class="brosmedia-header">
+    <!-- LEFT: LOGO -->
     <div class="standalone-logo">
         <a href="/">
             <img
@@ -30,99 +44,69 @@ import "../../src/assets/style/header.css";
         </a>
     </div>
 
-    <!-- 3. KINETIC NAVIGATION (Top Right) -->
-    <header class="header-right">
-        <!-- Desktop Nav (Hidden < 1024px) -->
-        <nav class="kinetic-nav desktop-only">
-            <ul class="nav-list">
-                <li class="nav-item" style="--i:1">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-
-                <li class="nav-item has-sub" style="--i:2">
-                    <a href="javascript:void(0)" class="nav-link sub-toggle"
-                        >Prise en charge</a
-                    >
-                    <div class="fan-menu">
-                        <div class="fan-inner">
-                            <a href="#"
-                                ><span>01</span> Pour les jeunes & parents</a
-                            >
-                            <a href="#"
-                                ><span>02</span> Pour les professionnels</a
-                            >
-                        </div>
+    <!-- CENTER: NAVIGATION -->
+    <nav class="kinetic-nav desktop-only">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item has-sub">
+                <a href="javascript:void(0)" class="nav-link sub-toggle">Prise en charge</a>
+                <div class="fan-menu">
+                    <div class="fan-inner">
+                        <a href="#"><span>01</span> Pour les jeunes & parents</a>
+                        <a href="#"><span>02</span> Pour les professionnels</a>
                     </div>
-                </li>
-
-                <li class="nav-item" style="--i:3">
-                    <a href="#" class="nav-link">Activités</a>
-                </li>
-
-                <li class="nav-item has-sub" style="--i:4">
-                    <a href="javascript:void(0)" class="nav-link sub-toggle"
-                        >Presse & Actus</a
-                    >
-                    <div class="fan-menu">
-                        <div class="fan-inner">
-                            <a href="#"><span>01</span> Actualités</a>
-                            <a href="#"><span>02</span> Articles de presse</a>
-                        </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Activités</a>
+            </li>
+            <li class="nav-item has-sub">
+                <a href="javascript:void(0)" class="nav-link sub-toggle">Presse & Actus</a>
+                <div class="fan-menu">
+                    <div class="fan-inner">
+                        <a href="#"><span>01</span> Actualités</a>
+                        <a href="#"><span>02</span> Articles de presse</a>
                     </div>
-                </li>
-            </ul>
-        </nav>
+                </div>
+            </li>
+        </ul>
+    </nav>
 
-        <!-- RIGHT SIDE ACTIONS -->
-        <div class="actions-group">
-            <!-- The Shard CTA (Hidden < 1024px) -->
-            <div class="cta-container desktop-only">
-                <a href="#contact" class="shard-btn">
-                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path d="M0,20 L80,0 L100,80 L20,100 Z" id="shardPath"
-                        ></path>
-                    </svg>
-                    <span>CONTACT</span>
-                </a>
-            </div>
-
-            <!-- MOBILE BURGER TRIGGER (Visible < 1024px) -->
-            <div class="mobile-burger" id="burgerTrigger">
-                <div class="burger-line line-top"></div>
-                <div class="burger-line line-bottom"></div>
-            </div>
+    <!-- RIGHT: CONTACT -->
+    <div class="actions-group">
+        <div class="cta-container desktop-only">
+            <a href="#contact" class="static-shard-btn">
+                <span>CONTACT</span>
+            </a>
         </div>
-    </header>
+        <div class="mobile-burger" id="burgerTrigger">
+            <div class="burger-line line-top"></div>
+            <div class="burger-line line-bottom"></div>
+        </div>
+    </div>
 </div>
 
-<!-- 4. FULLSCREEN MOBILE MENU OVERLAY -->
+<!-- MOBILE OVERLAY -->
 <div class="mobile-menu-overlay" id="mobileMenu">
     <nav class="mobile-nav-content">
         <a href="#" class="m-nav-link">Home</a>
-
         <div class="m-nav-item has-m-sub">
-            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
-                >Prise en charge</a
-            >
+            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger">Prise en charge</a>
             <div class="m-sub-menu">
                 <a href="#">Pour les jeunes & parents</a>
                 <a href="#">Pour les professionnels</a>
             </div>
         </div>
-
         <a href="#" class="m-nav-link">Activités</a>
-
         <div class="m-nav-item has-m-sub">
-            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
-                >Presse & Actus</a
-            >
+            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger">Presse & Actus</a>
             <div class="m-sub-menu">
                 <a href="#">Actualités</a>
                 <a href="#">Articles de presse</a>
             </div>
         </div>
-
-        <!-- Contact added as menu item on mobile -->
         <a href="#contact" class="m-nav-link m-contact-link">Contact</a>
     </nav>
 </div>
@@ -130,8 +114,8 @@ import "../../src/assets/style/header.css";
 <script>
     const el = document.querySelector(".sidebar-brand");
     el.style.height = window.innerHeight - 80 + "px";
-    document.querySelector(".brosmedia-header").style.height =
-        document.querySelector(".header-right").offsetHeight + "px";
+    // document.querySelector(".brosmedia-header").style.height =
+    //     document.querySelector(".header-right").offsetHeight + "px";
 
     // 1. Mobile Menu & Burger Toggle Logic
     const burger = document.getElementById("burgerTrigger");
@@ -164,27 +148,7 @@ import "../../src/assets/style/header.css";
     // 4. Click Outside to Close
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".nav-item")) {
-            document
-                .querySelectorAll(".nav-item")
-                .forEach((item) => item.classList.remove("active"));
+            document.querySelectorAll(".nav-item").forEach((item) => item.classList.remove("active"));
         }
     });
-
-    // 5. Shard Path Morph (GSAP)
-    const shardPath = document.getElementById("shardPath");
-    const btnShard = document.querySelector(".shard-btn");
-    if (btnShard && shardPath) {
-        btnShard.addEventListener("mouseenter", () => {
-            gsap.to(shardPath, {
-                attr: { d: "M0,0 L100,0 L100,100 L0,100 Z" },
-                duration: 0.4,
-            });
-        });
-        btnShard.addEventListener("mouseleave", () => {
-            gsap.to(shardPath, {
-                attr: { d: "M0,20 L80,0 L100,80 L20,100 Z" },
-                duration: 0.4,
-            });
-        });
-    }
 </script>
