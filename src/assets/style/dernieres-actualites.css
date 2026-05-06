@@ -1,0 +1,7 @@
+  .sh-main {
+      grid-template-columns: 1fr !important;
+  }
+
+  .sh-description {
+      min-width: 100% !important;
+  }

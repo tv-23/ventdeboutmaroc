@@ -1,0 +1,115 @@
+---
+import "../../../src/assets/style/news.css";
+---
+
+<section class="news-feed-area">
+    <!-- ARTICLE 1 -->
+    <article class="news-item item-left">
+        <div class="news-visual">
+            <div class="n-image-mask">
+                <img
+                    src="https://static.wixstatic.com/media/60ae4a_a5e5bd52c4624a0ab8625e0df9a907ad~mv2.jpg/v1/fill/w_1440,h_491,fp_0.50_0.50,q_85,enc_avif,quality_auto/60ae4a_a5e5bd52c4624a0ab8625e0df9a907ad~mv2.jpg"
+                    alt=""
+                />
+            </div>
+            <div class="n-date-shard">
+                <span>21</span>
+                <small>JUILLET</small>
+            </div>
+        </div>
+
+        <div class="news-info">
+            <span class="n-category">ÉVÉNEMENT</span>
+            <h3 class="n-title">LA PREMIÈRE "VÉLORUTION" LARACHOISE</h3>
+            <p class="n-excerpt">
+                Le vendredi 21 juillet nous avons participés à une action
+                organisée en partenariat avec des acteurs associatifs
+                internationaux à Larache.
+            </p>
+            <p class="n-excerpt">Les acteurs locaux et internationaux :</p>
+            <p class="n-excerpt">
+                Vélotaf Grand Poitiers association qui promeut le vélo au
+                quotidien. Elle était organisatrice de cet évènement. </br>
+                Association surf Larache engagée entre autres dans l'écologie et
+                protection de l'environnement.</br> Föreningen Framtidståget est une
+                organisation suédoise à but non lucratif et une entreprise
+                professionnelle centrée sur l'être humain. Ils sont engagés dans
+                le travail psychosocial et l'accueil familial, ainsi que dans
+                des projets internationaux. Ils souhaitent contribuer au
+                bien-être de la société et être une force créative dans le
+                domaine du traitement et du changement.</br> Ahmed bike shop un
+                réparateur vélo local engagé.
+            </p>
+            <p class="n-excerpt">Cette vélorution à un rythme doux était sécurisée et ouverte à toutes et tous, petits et grands !</p>
+            <p class="n-excerpt">L'objectif de cette manifestation était de rendre visible le vélo et lui donner plus de place sur l'espace public marocain.</p>
+            <p class="n-excerpt">Pour plus d'informations et de photos veuillez cliquer sur le lien ci-dessous :<br><a href="https://www.facebook.com/VelotafGP">facebook.com/VelotafGP</a></p>
+            <!-- <div class="n-details">
+                <p><strong>Partenaires :</strong> Vélotaf Grand Poitiers, Association Surf Larache, Föreningen Framtidståget, Ahmed bike shop.</p>
+                <div class="n-line"></div>
+                <a href="#" class="n-more">DÉCOUVRIR L'ARTICLE <span>→</span></a>
+            </div> -->
+        </div>
+
+        <!-- Background Parallax Text -->
+        <div class="n-ghost-text">2023</div>
+    </article>
+
+    <!-- ARTICLE 2 (Right Aligned) -->
+    <article class="news-item item-right">
+        <div class="news-visual">
+            <div class="n-image-mask">
+                <img
+                    src="https://static.wixstatic.com/media/60ae4a_8aa528d815834cc8893c89a3a574462d~mv2.jpg/v1/fill/w_1745,h_580,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/60ae4a_8aa528d815834cc8893c89a3a574462d~mv2.jpg"
+                    alt=""
+                />
+            </div>
+            <div class="n-date-shard">
+                <span>15</span>
+                <small>JUIN</small>
+            </div>
+        </div>
+
+        <div class="news-info">
+            <span class="n-category">IMMERSION</span>
+            <h3 class="n-title">PROJET ERASMUS+</h3>
+            <p class="n-excerpt">
+                Nous avons eu l'opportunité de réaliser un autre projet avec 35 participants venant de cinq pays différents (Suède, Maroc, France, Belgique, Espagne) qui se sont réunis dans la ville de Larache, au Maroc, du 7 au 15 juillet 2023.<br>
+                Ce fut un projet inoubliable. La dynamique du groupe était incroyable et le groupe est rapidement passé de participants à membres de la famille. Tous ceux qui ont participé à ce projet ont connu d'énormes développements et changements à tous les niveaux.<br>
+                Au cours du projet, nous avons eu de nombreuses activités différentes, entre autres, pour renforcer le groupe, mais aussi pour en apprendre davantage sur les cultures, les histoires de vie, les revers et les réussites de chacun. En plus de tout cela, nous avons passé des jours et des nuits remplis de rires et d'amour. <br>
+            </p>
+
+            <p class="n-excerpt">Le projet était financé par la Commission européenne dans le cadre du programme Erasmus+.</p>
+
+           
+        </div>
+        <div class="n-ghost-text">MAROC</div>
+    </article>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Reveal items on scroll
+    document.querySelectorAll(".news-item").forEach((item, i) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: "top 80%",
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power4.out",
+        });
+
+        // Ghost text parallax
+        const ghost = item.querySelector(".n-ghost-text");
+        gsap.to(ghost, {
+            scrollTrigger: {
+                trigger: item,
+                scrub: 1,
+            },
+            y: -150,
+        });
+    });
+</script>
