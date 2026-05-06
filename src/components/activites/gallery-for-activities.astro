@@ -1,0 +1,93 @@
+---
+import "../../../src/assets/style/gallery-for-activities.css";
+---
+
+<section class="rift-gallery-section" id="riftGallery">
+    <div class="rift-container">
+        
+        <!-- Activity 1 -->
+        <div class="rift-strip active">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_8d56a9d8adc541fca09bef719f4459ef~mv2.jpg/v1/fit/w_1164,h_771,q_90,enc_avif,quality_auto/60ae4a_8d56a9d8adc541fca09bef719f4459ef~mv2.jpg" alt="Activié écologique sur les digues de Larache">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">01</span>
+                <h3 class="r-title">Activié écologique sur les digues de Larache</h3>
+            </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="rift-strip">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_1221829bd9d446b096a9bdc519847d21~mv2.jpg/v1/fit/w_1164,h_771,q_90,enc_avif,quality_auto/60ae4a_1221829bd9d446b096a9bdc519847d21~mv2.jpg" alt="Activité sur le port de pêche de Larache">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">02</span>
+                <h3 class="r-title">Activité sur le port de pêche de Larache</h3>
+            </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="rift-strip">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_b198ff8afe0a43a2aa7b2143a1e06dc8~mv2.jpg/v1/fit/w_1164,h_771,q_90,enc_avif,quality_auto/60ae4a_b198ff8afe0a43a2aa7b2143a1e06dc8~mv2.jpg" alt="Culture">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">03</span>
+                <h3 class="r-title">Activité solidaire avec les enfants de l'orphelinat</h3>
+            </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="rift-strip">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_bdaa63543b4f4ef0961f02a690583691~mv2.jpg/v1/fit/w_1164,h_771,q_90,enc_avif,quality_auto/60ae4a_bdaa63543b4f4ef0961f02a690583691~mv2.jpg" alt="Collectif">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">04</span>
+                <h3 class="r-title">Randonnée de 3 jours</h3>
+            </div>
+        </div>
+
+        <div class="rift-strip">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_407e33e039eb48679a685496fbfdfbc5~mv2.jpg/v1/fit/w_1024,h_768,q_90,enc_avif,quality_auto/60ae4a_407e33e039eb48679a685496fbfdfbc5~mv2.jpg" alt="Collectif">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">05</span>
+                <h3 class="r-title">Construction recyclage</h3>
+            </div>
+        </div>
+
+          <div class="rift-strip">
+            <div class="rift-img-wrap">
+                <img src="https://static.wixstatic.com/media/60ae4a_05523357386c4ce28e38cd047f306b33~mv2.jpeg/v1/fit/w_1164,h_720,q_90,enc_avif,quality_auto/60ae4a_05523357386c4ce28e38cd047f306b33~mv2.jpeg" alt="Collectif">
+            </div>
+            <div class="rift-content">
+                <span class="r-numb">06</span>
+                <h3 class="r-title">La ferme pédagogique</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    window.addEventListener('load', () => {
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Entrance animation: Strips slide in from the right
+        gsap.from(".rift-strip", {
+            scrollTrigger: {
+                trigger: ".rift-container",
+                start: "top 80%",
+            },
+            x: 100,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1.2,
+            ease: "power4.out"
+        });
+    });
+</script>

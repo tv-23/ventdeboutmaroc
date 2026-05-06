@@ -1,0 +1,114 @@
+  .stagger-gallery-section {
+      background: #FFFFFF;
+      padding: 100px 5% 200px calc(var(--sidebar-w) + 60px);
+      overflow: hidden;
+  }
+
+  .stagger-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 150px 80px;
+      /* Large vertical gap for staggering */
+      max-width: 1400px;
+      margin: 0 auto;
+  }
+
+  /* --- THE ITEM --- */
+  .stagger-item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+  }
+
+  /* Stagger effect: Left column items start higher */
+  .item-right {
+      margin-top: 200px;
+  }
+
+  .s-image-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      /* Square images for the WOW factor */
+      overflow: hidden;
+      background: #F9F9F9;
+      /* Diagonal Rupture Cut */
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 15% 100%, 0 100%);
+  }
+
+  .s-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      transform: scale(1.1);
+  }
+
+  .s-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'Playfair Display';
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(194, 120, 88, 0.1);
+      z-index: 5;
+  }
+
+  /* --- CONTENT --- */
+  .s-content {
+      margin-top: 30px;
+  }
+
+  .s-title {
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: var(--dark);
+      line-height: 1.4;
+  }
+
+  .s-line {
+      width: 40px;
+      height: 1px;
+      background: var(--primary);
+      margin-top: 15px;
+      transition: width 0.5s ease;
+  }
+
+  /* --- HOVER WOW --- */
+  .stagger-item:hover img {
+      filter: grayscale(0%);
+      transform: scale(1);
+  }
+
+  .stagger-item:hover .s-image-box {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      /* Becomes full square */
+  }
+
+  .stagger-item:hover .s-line {
+      width: 100px;
+  }
+
+  /* --- MOBILE VERSION --- */
+  @media (max-width: 1024px) {
+      .stagger-gallery-section {
+          padding: 80px 20px;
+      }
+
+      .stagger-container {
+          grid-template-columns: 1fr;
+          gap: 80px;
+      }
+
+      .item-right {
+          margin-top: 0;
+      }
+
+      .s-image-box img {
+          filter: grayscale(0);
+      }
+  }

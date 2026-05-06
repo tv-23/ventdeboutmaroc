@@ -4,6 +4,8 @@ import PageHeader from "../components/page-header.astro";
 import SectionTitle from "../components/section-title.astro";
 import RiftRibbon from "../components/activites/rift-ribbon.astro";
 import SolidarityActivities from "../components/activites/solidarity-activities.astro";
+import SportsCulturalActivities from "../components/activites/sports-cultural-activities.astro";
+import GalleryForActivities from "../components/activites/gallery-for-activities.astro";
 ---
 
 <Layout>
@@ -36,4 +38,32 @@ import SolidarityActivities from "../components/activites/solidarity-activities.
 `}
     />
     <SolidarityActivities />
+ <SectionTitle
+        content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">DES ACTIVITÉS SPORTIVES</span>
+      <span class="sh-word italic">ET CULTURELLES</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+    />
+    <SportsCulturalActivities />
+    <SectionTitle
+        content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">PARCOUREZ NOTRE GALERIE PHOTO</span>
+      <span class="sh-word italic">ET DÉCOUVREZ DAVANTAGE D'ACTIVITÉS !</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+    />
+    <GalleryForActivities />
 </Layout>
