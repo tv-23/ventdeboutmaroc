@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import SectionTitle from "../components/section-title.astro";
+import ArchitecturalSpine from "../components/pour-les-jeunes-et-les-parents/architectural-spine.astro";
+---
+
+<Layout>
+  <PageHeader LeftyTitle="pour les jeunes" RightyTitle="et les parents" />
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">LA PRISE</span>
+      <span class="sh-word italic">EN CHARGE</span>
+    </h2>
+    <div class="sh-description">
+      <p>Procédures d'accueil</p>
+    </div>
+  </div>
+`}
+  />
+  <ArchitecturalSpine />
+
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">LE PROCESSUS DE PRISE</span>
+      <span class="sh-word italic">EN CHARGE</span>
+    </h2>
+    <div class="sh-description">
+      <p></p>
+    </div>
+  </div>
+`}
+  />
+  <div
+    style="width:fit-content;margin: 0 auto; margin-bottom: 50px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+  >
+    <img
+      src="https://static.wixstatic.com/media/60ae4a_7d8eeaa6ed42471a9df40ea5630cbe5e~mv2.jpg/v1/fill/w_666,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tableau%20PEC%20(1)_page-0001_edited_edited.jpg"
+      alt="Processus de prise en charge"
+      width="100%"
+      height="auto"
+      class="full-width-image"
+      style="padding-top: 80px;"
+    />
+  </div>
+</Layout>

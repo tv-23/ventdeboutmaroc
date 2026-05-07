@@ -1,0 +1,102 @@
+---
+import "../../../src/assets/style/minimum-participation-criteria.css";
+---
+
+<section class="clinical-brief">
+    <div class="brief-wrapper">
+        
+        <!-- ARTICLE 01: NATIONALITY -->
+        <div class="brief-row active-on-scroll">
+            <div class="row-index">01</div>
+            <div class="row-text">
+                <p>1. Si un des deux parents (ou les deux) est de nationalité marocaine, nous ne pouvons travailler avec le/la jeune car sur le territoire marocain, il/elle est considéré.e comme marocain.e (même s'il/elle a une carte d'identité belge!) et il serait impossible de l'extrader en cas de délit commis sur place.</p>
+                
+                <div class="legal-quote">
+                    <span class="quote-tag">EXTRAIT DU DAHIR : ARTICLE 6</span>
+                    <blockquote>
+                        "Est Marocain :<br>
+                        a. L'enfant né d'un père marocain ;<br>
+                        b. L'enfant né d'une mère marocaine et d'un père inconnu."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 02: BEHAVIOR -->
+        <div class="brief-row active-on-scroll">
+            <div class="row-index">02</div>
+            <div class="row-text">
+                <p>2. L'accueil au sein de familles n'est pas compatible avec la prise en charge de jeunes ayant commis des faits de mœurs. Pour rappel, le/la jeune va vivre loin, 10 semaines sans contacts directs avec sa famille ou ses amis (pas de GSM, pas d'internet) et être accueilli par périodes de plus ou moins 15 jours dans des familles marocaines où résident d'autres enfants. Il/elle sera amené.e à se rendre utile auprès d'associations telles qu'un orphelinat, une école pour enfants porteurs de handicaps mentaux , un centre de jour pour enfants autistes ou encore un centre de formation pour femmes.</p>
+            </div>
+        </div>
+
+        <!-- EVALUATION SECTION -->
+        <div class="brief-row active-on-scroll">
+            <div class="row-index">03</div>
+            <div class="row-text">
+                <div class="eval-intro">
+                    <div class="dot-deco"></div>
+                    <p>Afin d'éviter au/à la jeune un échec supplémentaire dans son parcours, différents points seront donc évalués avec vous lors de notre prochain contact :</p>
+                </div>
+
+                <!-- THE 6 POINTS GRID -->
+                <div class="eval-points-grid">
+                    <div class="eval-item">
+                        <span>CAPACITÉ INTELLECTUELLE</span>
+                        <p>Suffisante pour pouvoir comprendre le projet et trouver les ressources pour s'adapter sur place (introspection).</p>
+                    </div>
+                    <div class="eval-item">
+                        <span>SÉCURITÉ INTERNE</span>
+                        <p>Suffisante pour pouvoir s'adapter à la rupture et créer un lien suffisant avec les familles.</p>
+                    </div>
+                    <div class="eval-item">
+                        <span>ÉQUILIBRE PSYCHIQUE</span>
+                        <p>Et émotionnel suffisant pour ne pas risquer de passages à l'acte agressif, de tentatives de suicide ou de tout comportement à risque lié à la perte de lien avec la réalité.</p>
+                    </div>
+                    <div class="eval-item">
+                        <span>ÉTAT PHYSIQUE</span>
+                        <p>Ne présentant pas de contre-indication et notamment pas de toxicomanie risquant d'entraîner un état de manque sur place.</p>
+                    </div>
+                    <div class="eval-item">
+                        <span>MÉDICATION</span>
+                        <p>En cas de médication, limitation de la médication au long cours, bien gérée par le/la jeune ne nécessitant pas de médication de crise.</p>
+                    </div>
+                    <div class="eval-item">
+                        <span>VOLONTÉ MINIMALE</span>
+                        <p>Du/de la jeune à participer au séjour de rupture ou au moins au rendez-vous d'admission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="brief-row active-on-scroll conclusion-row">
+            <div class="row-index">→</div>
+            <div class="row-text">
+                <p>Si ces critères sont remplis, un rendez-vous d'admission est proposé. Si par ailleurs vous estimez que la candidature ne rentre pas dans ces critères, ou qu'elle devenait obsolète, il nous serait vraiment utile que vous nous préveniez.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    // Intersection Observer to highlight the row the user is currently reading
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.active-on-scroll').forEach(row => {
+        observer.observe(row);
+    });
+</script>

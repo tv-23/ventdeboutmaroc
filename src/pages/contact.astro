@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import "../../src/assets/style/contact.css";
+---
+
+<Layout>
+  <PageHeader LeftyTitle="Contactez" RightyTitle="nous" />
+
+  <!-- 2. THE CONTACT DASHBOARD -->
+  <section class="contact-signature-area">
+    <div class="c-sig-wrapper">
+      <!-- LEFT: THE ARCHITECTURAL INFO -->
+      <div class="c-info-side">
+        <div class="info-block reveal-item">
+          <span class="i-tag">EMAIL</span>
+          <a href="mailto:info@ventdebout.be" class="i-link"
+            >info@ventdebout.be</a
+          >
+        </div>
+
+        <div class="info-block reveal-item">
+          <span class="i-tag">TÉLÉPHONE</span>
+          <a href="tel:+3243416282" class="i-link">+32 (0)4 341 62 82</a>
+        </div>
+
+        <div class="info-block reveal-item">
+          <span class="i-tag">ADRESSE</span>
+          <p class="i-text">
+            Rue des Trois Rivages, 39<br />4020 Liège, Belgique
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: THE KINETIC FORM -->
+      <div class="c-form-side">
+        <form class="sig-form" id="contactForm">
+          <div class="f-group reveal-item">
+            <input type="text" required placeholder=" " />
+            <label>NOM COMPLET</label>
+            <div class="f-line"></div>
+          </div>
+
+          <div class="f-group reveal-item">
+            <input type="email" required placeholder=" " />
+            <label>VOTRE EMAIL</label>
+            <div class="f-line"></div>
+          </div>
+
+          <div class="f-group reveal-item">
+            <textarea rows="4" required placeholder=" "></textarea>
+            <label>VOTRE MESSAGE</label>
+            <div class="f-line"></div>
+          </div>
+
+          <button type="submit" class="sig-submit">
+            <span>ENVOYER LE MESSAGE</span>
+            <div class="s-circle"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FULL WIDTH MAP -->
+  <section class="map-signature-section">
+    <div class="map-label">LOCALISATION SIÈGE SOCIAL</div>
+    <div class="google-map-frame" id="mapFrame">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.206460375395!2d5.651647799999999!3d50.6604271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f10f68d0bc25%3A0xaca5c434c8c899f2!2sRue%20des%20Trois%20Rivages%2039%2C%204020%20Li%C3%A8ge%2C%20Belgium!5e0!3m2!1sen!2sma!4v1777730588622!5m2!1sen!2sma"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Staggered reveal of information shards
+    gsap.from(".reveal-item", {
+      scrollTrigger: {
+        trigger: ".c-sig-wrapper",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: "power3.out",
+    });
+  </script>
+</Layout>

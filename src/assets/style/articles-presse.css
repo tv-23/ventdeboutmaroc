@@ -1,0 +1,176 @@
+ .press-lift-area {
+     background: #FFFFFF;
+     padding: 100px 60px 50px calc(var(--sidebar-w) + 60px);
+     overflow: hidden;
+     width: calc(100% - (var(--sidebar-w) + 120px));
+ }
+#pressContainer .lift-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    /* Vertical gap between plates */
+}
+
+/* --- THE PLATE --- */
+#pressContainer .lift-plate {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    padding: 60px;
+    background: #FFFFFF;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 2;
+}
+
+/* Asymmetric Staggering */
+#pressContainer .pos-left {
+    align-self: flex-start;
+}
+
+#pressContainer .pos-right {
+    align-self: flex-end;
+}
+
+/* The Invisible Frame that appears on hover */
+#pressContainer .p-frame {
+    position: absolute;
+    inset: 0;
+    border: 1px solid #F0F0F0;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+/* --- LOGO SHARD --- */
+#pressContainer .p-logo-shard {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pressContainer .p-logo-shard img {
+      width: 100%;
+    height: auto;
+    /* filter: grayscale(100%); */
+    opacity: 0.3;
+     transition: all 0.6s ease;
+}
+
+/* --- CONTENT --- */
+#pressContainer .p-tag {
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 15px;
+}
+
+#pressContainer .p-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 0;
+    transition: all 0.5s ease;
+}
+
+#pressContainer .p-hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#pressContainer .p-hidden-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #777;
+    margin-top: 25px;
+}
+
+#pressContainer .p-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    font-weight: 900;
+    font-size: 0.7rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* --- HOVER "LIFT" WOW --- */
+#pressContainer .lift-plate:hover {
+    transform: translateY(-20px) scale(1.02);
+    z-index: 10;
+}
+
+#pressContainer .lift-plate:hover .p-frame {
+    border-color: var(--primary);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
+}
+
+#pressContainer .lift-plate:hover .p-logo-shard img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#pressContainer .lift-plate:hover .p-title {
+    color: var(--primary);
+    font-style: italic;
+}
+
+#pressContainer .lift-plate:hover .p-hidden-content {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1024px) {
+    #pressContainer .press-lift-area {
+        padding: 80px 25px;
+    }
+
+    #pressContainer .lift-plate {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        max-width: 100%;
+        border-bottom: 1px solid #EEE;
+    }
+
+    #pressContainer .p-logo-shard {
+        height: 60px;
+        margin-bottom: 10px;
+        justify-content: flex-start;
+    }
+
+    #pressContainer .p-logo-shard img {
+        filter: grayscale(0);
+        opacity: 1;
+    }
+
+    #pressContainer .p-hidden-content {
+        max-height: none;
+        opacity: 1;
+    }
+
+    #pressContainer .p-frame {
+        display: none;
+    }
+
+    #pressContainer .lift-plate:hover {
+        transform: none;
+    }
+}

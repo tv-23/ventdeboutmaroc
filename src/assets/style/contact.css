@@ -1,0 +1,212 @@
+ .contact-signature-area {
+     background: #FFFFFF;
+     padding-left: var(--sidebar-w);
+     border-top: 1px solid #F0F0F0;
+     width: calc(100% - var(--sidebar-w));
+ }
+
+ .c-sig-wrapper {
+     display: grid;
+     grid-template-columns: 1fr 1.2fr;
+     max-width: 1400px;
+     margin: 0 auto;
+ }
+
+ /* Info Side */
+ .c-info-side {
+     padding: 100px 80px;
+     border-right: 1px solid #F0F0F0;
+     display: flex;
+     flex-direction: column;
+     gap: 80px;
+ }
+
+ .i-tag {
+     font-size: 0.6rem;
+     font-weight: 900;
+     letter-spacing: 4px;
+     color: var(--primary);
+     display: block;
+     margin-bottom: 15px;
+ }
+
+ .i-link,
+ .i-text {
+     font-family: 'Playfair Display';
+     font-size: 2.4rem;
+     font-weight: 900;
+     color: var(--dark);
+     text-decoration: none;
+     line-height: 1.1;
+ }
+
+ .i-link:hover {
+     color: var(--primary);
+ }
+
+ /* Form Side */
+ .c-form-side {
+     padding: 100px 10%;
+ }
+
+ .sig-form {
+     width: 100%;
+     max-width: 500px;
+ }
+
+ .f-group {
+     position: relative;
+     margin-bottom: 60px;
+ }
+
+ .f-group input,
+ .f-group textarea {
+     width: 100%;
+     padding: 15px 0;
+     border: none;
+     background: none;
+     outline: none;
+     font-size: 1.1rem;
+     color: var(--dark);
+     font-weight: 500;
+ }
+
+ .f-group label {
+     position: absolute;
+     top: 15px;
+     left: 0;
+     font-size: 0.75rem;
+     font-weight: 900;
+     letter-spacing: 2px;
+     color: #BBB;
+     pointer-events: none;
+     transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+ }
+
+ /* Kinetic Label Interaction */
+ .f-group input:focus~label,
+ .f-group input:not(:placeholder-shown)~label,
+ .f-group textarea:focus~label,
+ .f-group textarea:not(:placeholder-shown)~label {
+     transform: translateY(-20px);
+     /* opacity: 0; */
+     /* Pure Modernism: Label disappears to make room for content */
+ }
+
+ .f-line {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 1px;
+     background: #EEE;
+     transition: 0.4s;
+ }
+
+ .f-group input:focus~.f-line {
+     background: var(--primary);
+     height: 2px;
+ }
+
+ /* Submit Button */
+ .sig-submit {
+     background: none;
+     border: none;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     padding: 20px 0;
+     font-weight: 900;
+     font-size: 0.8rem;
+     letter-spacing: 3px;
+     color: var(--dark);
+ }
+
+ .s-circle {
+     width: 50px;
+     height: 50px;
+     border: 1px solid #EEE;
+     border-radius: 50%;
+     transition: 0.4s;
+ }
+
+ .sig-submit:hover .s-circle {
+     background: var(--primary);
+     border-color: var(--primary);
+     transform: scale(1.2);
+ }
+
+ .sig-submit:hover {
+     color: var(--primary);
+ }
+
+ /* --- FULL WIDTH MAP --- */
+ .map-signature-section {
+     position: relative;
+     padding-left: var(--sidebar-w);
+
+     width: calc(100% - var(--sidebar-w));
+     height: 60vh;
+     border-top: 1px solid #F0F0F0;
+ }
+
+ .map-label {
+     position: absolute;
+     top: 40px;
+     left: 40px;
+     font-size: 0.6rem;
+     font-weight: 900;
+     letter-spacing: 5px;
+     color: #AAA;
+     z-index: 10;
+     pointer-events: none;
+ }
+
+ .google-map-frame {
+     width: 100%;
+     height: 100%;
+     filter: grayscale(1);
+     transition: 1s ease;
+ }
+
+ .map-signature-section:hover .google-map-frame {
+     filter: grayscale(0);
+ }
+
+ /* --- MOBILE --- */
+ @media (max-width: 1024px) {
+
+     .contact-page-header,
+     .contact-signature-area {
+         padding-left: 0;
+     }
+
+     .c-sig-wrapper {
+         grid-template-columns: 1fr;
+     }
+
+     .c-info-side {
+         padding: 60px 30px;
+         border-right: none;
+         border-bottom: 1px solid #EEE;
+         gap: 40px;
+     }
+
+     .i-link,
+     .i-text {
+         font-size: 1.8rem;
+     }
+
+     .c-form-side {
+         padding: 60px 30px;
+     }
+
+     .map-signature-section {
+         height: 40vh;
+     }
+
+     .google-map-frame {
+         filter: grayscale(0);
+     }
+ }

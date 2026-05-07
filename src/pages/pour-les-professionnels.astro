@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import SectionTitle from "../components/section-title.astro";
+import ArchitecturalSpine from "../components/pour-les-professionnels/architectural-spine.astro";
+import MinimumParticipationCriteria from "../components/pour-les-professionnels/minimum-participation-criteria.astro";
+---
+
+<Layout>
+  <PageHeader LeftyTitle="Pour les" RightyTitle="professionnels" />
+   <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">LA PRISE</span>
+      <span class="sh-word italic">EN CHARGE</span>
+    </h2>
+    <div class="sh-description">
+      <p>Critères minimaux de participation</p>
+    </div>
+  </div>
+`}
+  />
+
+  <MinimumParticipationCriteria />
+
+  <SectionTitle
+    content={`
+  <div class="sh-main">
+    <h2 class="sh-title">
+      <span class="sh-word">LES</span>
+      <span class="sh-word italic">OBJECTIFS</span>
+    </h2>
+    <div class="sh-description">
+      <p>Le projet tente de :</p>
+    </div>
+  </div>
+`}
+  />
+  <ArchitecturalSpine />
+
+ 
+</Layout>

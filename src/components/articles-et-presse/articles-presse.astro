@@ -1,0 +1,108 @@
+---
+import "../../../src/assets/style/articles-presse.css";
+---
+
+<section class="press-lift-area" id="pressContainer">
+    <div class="lift-wrapper">
+        
+        <!-- ARTICLE 01 -->
+        <article class="lift-plate pos-left" data-speed="1.1">
+            <div class="p-logo-shard">
+                <img src="https://static.wixstatic.com/media/60ae4a_0741293c55bc47b5b12c6de85abcc622~mv2.png/v1/fill/w_180,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/guide%20social.png" alt="">
+            </div>
+            <div class="p-info">
+                <span class="p-tag">LE GUIDE SOCIAL</span>
+                <h3 class="p-title">L’après Covid-19 : "Le travail social va devoir se réinventer".</h3>
+                <div class="p-hidden-content">
+                    <!-- <p>Une réflexion sur l'évolution nécessaire des structures d'accueil et du rapport à l'humain dans un monde en mutation.</p> -->
+                    <a href="https://pro.guidesocial.be/articles/carte-blanche/article/l-apres-covid-19-le-travail-social-va-devoir-se-reinventer?fbclid=IwAR0gxk8IwZGwg67C3dnweNXQMrFLbejKqlzaKThXrX0GD8Joba0NdKNGNoc" target="_blank" class="p-link">LIRE L'ARTICLE <span>→</span></a>
+                </div>
+            </div>
+            <div class="p-frame"></div>
+        </article>
+
+        <!-- ARTICLE 02 -->
+        <article class="lift-plate pos-right" data-speed="1.3">
+            <div class="p-logo-shard">
+                <img src="https://static.wixstatic.com/media/60ae4a_482cd6ece8154e159f9e01d540f5fbb0~mv2.png/v1/fill/w_180,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/lalibre.png" alt="">
+            </div>
+            <div class="p-info">
+                <span class="p-tag">LA LIBRE</span>
+                <h3 class="p-title">Dans la peau d'une assistante sociale : "Faisons-nous partie d'un monde où nous devons systématiquement nous tuer à la tâche ?"</h3>
+                <div class="p-hidden-content">
+                    <!-- <p>Analyse d'un métier en première ligne, entre engagement total et besoin de reconstruction personnelle.</p> -->
+                    <a href="https://www.lalibre.be/debats/opinions/dans-la-peau-d-une-assistante-sociale-faisons-nous-partie-d-un-monde-ou-nous-devons-systematiquement-nous-tuer-a-la-tache-5f58e1dad8ad586219051ec5" target="_blank" class="p-link">LIRE L'ARTICLE <span>→</span></a>
+                </div>
+            </div>
+            <div class="p-frame"></div>
+        </article>
+
+        <!-- ARTICLE 03 -->
+        <article class="lift-plate pos-left" data-speed="1.15">
+            <div class="p-logo-shard">
+                <img src="https://static.wixstatic.com/media/60ae4a_7a5ccf0ea0074c8c87cbb00fcd461b3b~mv2.png/v1/fill/w_180,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/le%20soir.png" alt="">
+            </div>
+            <div class="p-info">
+                <span class="p-tag">LE SOIR</span>
+                <h3 class="p-title">Au Maroc avec « Le Cheval de l’espoir » : Rompre pour retrouver des repères.</h3>
+                <div class="p-hidden-content">
+                    <!-- <p>Reportage exclusif sur l'impact de l'éloignement et de la vie à la ferme sur la psychologie des jeunes.</p> -->
+                    <a href="https://www.lesoir.be/art/%252Fm%252Frompre-pour-retrouver-des-reperes_t-20120101-01QWU0.html" target="_blank" class="p-link">LIRE L'ARTICLE <span>→</span></a>
+                </div>
+            </div>
+            <div class="p-frame"></div>
+        </article>
+
+        <!-- ARTICLE 04 -->
+        <article class="lift-plate pos-right" data-speed="1.25">
+            <div class="p-logo-shard">
+                <img src="https://static.wixstatic.com/media/60ae4a_caa6948b65354d8295336b45a57173a3~mv2.png/v1/fill/w_180,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/sudinfo.png" alt="">
+            </div>
+            <div class="p-info">
+                <span class="p-tag">SUDINFO</span>
+                <h3 class="p-title">L'asbl Vent Debout : présentation de l'asbl.</h3>
+                <div class="p-hidden-content">
+                    <!-- <p>Un portrait complet de l'organisation et de sa structure de prise en charge au cœur de la province de Larache.</p> -->
+                    <a href="https://www.sudinfo.be/id52801/article/2018-05-07/lasbl-vent-debout" target="_blank" class="p-link">LIRE L'ARTICLE <span>→</span></a>
+                </div>
+            </div>
+            <div class="p-frame"></div>
+        </article>
+
+    </div>
+</section>
+
+<script>
+    window.addEventListener('load', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. REVEAL PLATES ON SCROLL
+        gsap.utils.toArray(".lift-plate").forEach((plate, i) => {
+            gsap.from(plate, {
+                scrollTrigger: {
+                    trigger: plate,
+                    start: "top 90%",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // 2. KINETIC DRIFT (Desktop Only)
+        if (window.innerWidth > 1024) {
+            document.querySelectorAll('.lift-plate').forEach(plate => {
+                const speed = parseFloat(plate.getAttribute('data-speed'));
+                gsap.to(plate, {
+                    scrollTrigger: {
+                        trigger: plate,
+                        scrub: 1
+                    },
+                    y: (i) => -200 * (speed - 1),
+                    ease: "none"
+                });
+            });
+        }
+    });
+</script>

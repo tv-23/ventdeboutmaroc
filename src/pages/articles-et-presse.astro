@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import SectionTitle from "../components/section-title.astro";
+import "../../src/assets/style/dernieres-actualites.css";
+import ArticlesPresse from "../components/articles-et-presse/articles-presse.astro";
+---
+
+<Layout>
+    <PageHeader LeftyTitle="ARTICLES" RightyTitle="ET PRESSE" />
+    <SectionTitle
+        content={`
+  <div class="sh-main">
+    <div class="sh-description">
+      <p>Vous pouvez découvrir ci-dessous différents articles qui abordent le travail de notre service et le travail social de manière générale.</p>
+    </div>
+  </div>
+`}
+    />
+
+    <br><br>
+
+    <ArticlesPresse />
+</Layout>

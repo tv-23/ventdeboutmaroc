@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/page-header.astro";
+import SectionTitle from "../components/section-title.astro";
+import "../../src/assets/style/dernieres-actualites.css";
+import News from "../components/dernieres-actualites/news.astro";
+---
+
+<Layout>
+    <PageHeader LeftyTitle="DERNIÈRES" RightyTitle="ACTUALITÉS" />
+    <SectionTitle
+        content={`
+  <div class="sh-main">
+    <div class="sh-description">
+      <p>L'équipe de Vent Debout Maroc et ses partenaires ne s'arrêtent jamais ! Vous pouvez découvrir ci-dessous nos dernières actualités, nos derniers partenariats, nos derniers projets, ... Vous pouvez également suivre notre actualité sur notre profil Facebook en cliquant sur le bouton ci-dessous :
+
+</p>
+    </div>
+  </div>
+`}
+    />
+
+    <br><br>
+
+    <News />
+</Layout>

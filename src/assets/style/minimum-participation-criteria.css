@@ -1,0 +1,211 @@
+  .clinical-brief {
+      background: #FFFFFF;
+      padding: 80px 80px 0px 200px;
+
+      /* padding: 100px 10% 200px calc(var(--sidebar-w) + 100px); */
+  }
+
+  .brief-wrapper {
+      width: 100%;
+      /* max-width: 1200px; */
+  }
+
+  .legal-quote {
+      margin-top: 40px;
+      padding: 30px;
+      background: #FDFBFA;
+      border-left: 2px solid var(--primary);
+      max-width: 500px;
+  }
+
+  .quote-tag {
+      font-size: 0.6rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 15px;
+  }
+
+  .legal-quote blockquote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #888;
+      line-height: 1.6;
+  }
+
+  .brief-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      padding: 80px 0;
+      border-bottom: 1px solid #F0F0F0;
+      transition: opacity 0.6s ease;
+      opacity: 0.2;
+  }
+
+  .brief-row.is-visible {
+      opacity: 1;
+  }
+
+  .row-index {
+      font-family: 'Playfair Display';
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--primary);
+  }
+
+  .row-text p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #555;
+      /* max-width: 850px; */
+  }
+
+  /* Eval Grid Desktop */
+  .eval-points-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+  }
+
+  .eval-item {
+      padding: 30px;
+      border-left: 2px solid #EEE;
+      transition: 0.3s;
+  }
+
+  .eval-item span {
+      font-weight: 900;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .eval-item p {
+      font-size: 1rem;
+      color: #555;
+  }
+
+  /* -------------------------------------------
+       MOBILE REVOLUTION (THE FINAL FIX)
+    ------------------------------------------- */
+  @media (max-width: 1024px) {
+      .clinical-brief {
+          padding: 60px 20px 100px 20px;
+          /* Full width */
+          overflow: hidden;
+      }
+
+      .brief-row {
+          grid-template-columns: 1fr;
+          /* Stacked */
+          padding: 60px 0;
+          opacity: 1 !important;
+          /* Force visibility for better mobile reading */
+          position: relative;
+      }
+
+      /* Large Watermark Number for "WOW" factor */
+      .row-index {
+          position: absolute;
+          top: 10px;
+          left: -10px;
+          font-size: 8rem;
+          opacity: 0.05 !important;
+          z-index: 0;
+          pointer-events: none;
+      }
+
+      .row-text {
+          position: relative;
+          z-index: 1;
+      }
+
+      /* INCREASED TEXT SIZE */
+      .row-text p {
+          font-size: 1.3rem;
+          /* Large and readable */
+          line-height: 1.6;
+          color: var(--dark);
+          margin-bottom: 20px;
+      }
+
+      /* Legal Quote Mobile */
+      .legal-quote {
+          margin-top: 30px;
+          padding: 30px 20px;
+          background: #FDFBFA;
+          border-left: 4px solid var(--primary);
+          font-size: 1.1rem;
+      }
+
+      /* THE CARDS (Section 03) */
+      .eval-intro {
+          margin-bottom: 40px;
+      }
+
+      .eval-intro p {
+          font-size: 1.4rem;
+          font-weight: 900;
+          line-height: 1.3;
+      }
+
+      .eval-points-grid {
+          grid-template-columns: 1fr;
+          /* Single column cards */
+          gap: 20px;
+          margin-top: 30px;
+      }
+
+      .eval-item {
+          background: #FFFFFF;
+          padding: 30px 25px;
+          border: 1px solid #EEE;
+          border-left: 5px solid var(--primary);
+          /* Strong accent */
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+          /* Rupture style clip-path */
+          clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);
+      }
+
+      .eval-item span {
+          font-size: 0.75rem;
+          letter-spacing: 3px;
+          margin-bottom: 15px;
+          opacity: 0.8;
+      }
+
+      .eval-item p {
+          font-size: 1.1rem;
+          /* Larger card text */
+          line-height: 1.5;
+          color: #555;
+      }
+
+      .conclusion-row p {
+          font-size: 1.4rem;
+          font-weight: 900;
+          color: var(--primary);
+          border-top: 1px solid #EEE;
+          padding-top: 40px;
+      }
+  }
+
+  /* Small Phone Fix */
+  @media (max-width: 480px) {
+      .row-text p {
+          font-size: 1.15rem;
+      }
+
+      .eval-intro p {
+          font-size: 1.2rem;
+      }
+
+      .row-index {
+          font-size: 6rem;
+          top: 0;
+      }
+  }

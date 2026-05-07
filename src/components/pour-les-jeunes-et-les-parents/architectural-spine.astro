@@ -1,0 +1,90 @@
+---
+import "../../../src/assets/style/architectural-spine.css";
+---
+
+<section class="pulse-section" id="methodologie">
+    <!-- The Central Path Line -->
+    <div class="pulse-spine">
+        <div class="pulse-progress" id="pulseProgress"></div>
+    </div>
+
+    <div class="pulse-container">
+
+        <!-- STEP 01 -->
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">01</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">INITIATION</span>
+                <h3>La Demande Initiale</h3>
+                <div class="p-text">
+                    <p>La demande se fait par mail (<a
+                            href="mailto:infomaroc@ventdebout.be">infomaroc@ventdebout.be</a>). Nous reprenons contact
+                        dès qu’une place se profile.</p>
+                    <p class="s-detail">Les parents et proches sont vivement conviés à ce premier échange pour assurer
+                        une transparence totale dès le départ.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 02 -->
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">02</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">RENCONTRE</span>
+                <h3>Admission & Réflexion</h3>
+                <div class="p-text">
+                    <p>Ce rendez-vous permet de présenter le projet <strong>"Cheval de l'Espoir"</strong> et de faire
+                        connaissance avec le jeune et sa famille.</p>
+                    <p class="s-detail">Un délai de réflexion de quelques jours est imposé pour garantir la cohérence du
+                        projet de rupture.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 03 -->
+        <div class="pulse-item">
+            <div class="p-left-side">
+                <span class="p-numb">03</span>
+            </div>
+            <div class="p-right-side">
+                <span class="p-tag">DÉPART</span>
+                <h3>La Formalisation</h3>
+                <div class="p-text">
+                    <p>Le rendez-vous de formalisation a lieu chez le mandant qui officialise la prise en charge.</p>
+                    <p class="s-detail">C'est l'étape finale qui lance officiellement le processus de reconstruction et
+                        le voyage vers le Maroc.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Line Progress Animation
+    gsap.to("#pulseProgress", {
+        scrollTrigger: {
+            trigger: ".pulse-container",
+            start: "top center",
+            end: "bottom center",
+            scrub: 1
+        },
+        height: "100%"
+    });
+
+    // 2. Reveal Each Item
+    document.querySelectorAll('.pulse-item').forEach((item) => {
+        ScrollTrigger.create({
+            trigger: item,
+            start: window.innerWidth > 1024 ? "top 70%" : "top 80%", // Trigger slightly later on mobile
+            onEnter: () => item.classList.add('is-active'),
+            onLeaveBack: () => item.classList.remove('is-active')
+        });
+    });
+</script>
