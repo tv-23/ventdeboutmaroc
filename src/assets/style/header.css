@@ -176,7 +176,7 @@ h6 {
 .nav-link:hover {
     color: var(--primary);
 }
-.nav-item.active{
+.nav-item.active a{
     color: var(--primary);
 }
 /* Submenu Desktop */

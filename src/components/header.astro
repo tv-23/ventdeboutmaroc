@@ -9,227 +9,210 @@ const isSubActive = (paths) => paths.includes(currentPath);
 
 <!-- 1. NEW TOP BAR -->
 <div class="top-header-bar">
-    <div class="top-bar-container">
-        <div class="top-left-info">
-            <a href="mailto:info@ventdebout.be"
-                ><i class="icon-email"></i>
-                <span class="desktop-only">Email:</span> info@ventdebout.be</a
-            >
-            <span class="divider">|</span>
-            <a href="tel:+3243416282"
-                ><i class="icon-phone"></i>
-                <span class="desktop-only">Phone number:</span> 04/345.62.82</a
-            >
-        </div>
-        <div class="top-right-socials">
-            <a href="#" target="_blank" title="Facebook">FB</a>
-            <a href="#" target="_blank" title="LinkedIn">LI</a>
-        </div>
+  <div class="top-bar-container">
+    <div class="top-left-info">
+      <a href="mailto:info@ventdebout.be"
+        ><i class="icon-email"></i>
+        <span class="desktop-only">Email:</span> info@ventdebout.be</a
+      >
+      <span class="divider">|</span>
+      <a href="tel:+3243416282"
+        ><i class="icon-phone"></i>
+        <span class="desktop-only">Phone number:</span> 04/345.62.82</a
+      >
     </div>
+    <div class="top-right-socials">
+      <a href="#" target="_blank" title="Facebook">FB</a>
+      <a href="#" target="_blank" title="LinkedIn">LI</a>
+    </div>
+  </div>
 </div>
 
 <aside class="sidebar-brand">
-    <div class="side-brand-top">
-        <div class="side-brand-text">
-            <span class="txt-main">VENT DEBOUT</span>
-            <span class="txt-sub">MAROC</span>
-        </div>
+  <div class="side-brand-top">
+    <div class="side-brand-text">
+      <span class="txt-main">VENT DEBOUT</span>
+      <span class="txt-sub">MAROC</span>
     </div>
-    <div class="side-socials">
-        <a href="#" class="s-link">FACEBOOK</a>
-        <div class="s-line"></div>
-        <a href="#" class="s-link">LINKEDIN</a>
-    </div>
+  </div>
+  <div class="side-socials">
+    <a href="#" class="s-link">FACEBOOK</a>
+    <div class="s-line"></div>
+    <a href="#" class="s-link">LINKEDIN</a>
+  </div>
 </aside>
 
 <div class="brosmedia-header">
-    <!-- LEFT: LOGO -->
-    <div class="standalone-logo">
-        <a href="/">
-            <img
-                src="https://static.wixstatic.com/media/60ae4a_58b08ed5f7f84b79984c920082b87558~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_-modified.png"
-                alt="Logo"
-                class="img-logo"
-            />
-        </a>
-    </div>
+  <!-- LEFT: LOGO -->
+  <div class="standalone-logo">
+    <a href="/">
+      <img
+        src="https://static.wixstatic.com/media/60ae4a_58b08ed5f7f84b79984c920082b87558~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/photoeffets_com_-modified.png"
+        alt="Logo"
+        class="img-logo"
+      />
+    </a>
+  </div>
 
-    <!-- CENTER: NAVIGATION -->
-    <nav class="kinetic-nav desktop-only">
-        <ul class="nav-list">
-    <li class={`nav-item ${isActive("/") ? "active" : ""}`}>
+  <!-- CENTER: NAVIGATION -->
+  <nav class="kinetic-nav desktop-only">
+    <ul class="nav-list">
+      <li class={`nav-item ${isActive("/") ? "active" : ""}`}>
         <a href="/" class="nav-link">Home</a>
-    </li>
+      </li>
 
-    <li
+      <li
         class={`nav-item has-sub ${
-            isSubActive([
-                "/pour-les-jeunes-et-les-parents",
-                "/pour-les-professionnels",
-            ])
-                ? "active"
-                : ""
+          isSubActive([
+            "/pour-les-jeunes-et-les-parents",
+            "/pour-les-professionnels",
+          ])
+            ? "active"
+            : ""
         }`}
-    >
+      >
         <a href="javascript:void(0)" class="nav-link sub-toggle">
-            Prise en charge
+          Prise en charge
         </a>
 
         <div class="fan-menu">
-            <div class="fan-inner">
-                <a
-                    href="/pour-les-jeunes-et-les-parents"
-                    class={
-                        isActive("/pour-les-jeunes-et-les-parents")
-                            ? "active"
-                            : ""
-                    }
-                >
-                    <span>01</span> Pour les jeunes & parents
-                </a>
-
-                <a
-                    href="/pour-les-professionnels"
-                    class={
-                        isActive("/pour-les-professionnels")
-                            ? "active"
-                            : ""
-                    }
-                >
-                    <span>02</span> Pour les professionnels
-                </a>
-            </div>
-        </div>
-    </li>
-
-    <li class={`nav-item ${isActive("/activites") ? "active" : ""}`}>
-        <a href="/activites" class="nav-link">Activités</a>
-    </li>
-
-    <li
-        class={`nav-item has-sub ${
-            isSubActive([
-                "/dernieres-actualites",
-                "/articles-et-presse",
-            ])
+          <div class="fan-inner">
+            <a
+              href="/pour-les-jeunes-et-les-parents"
+              class={isActive("/pour-les-jeunes-et-les-parents")
                 ? "active"
-                : ""
-        }`}
-    >
-        <a href="javascript:void(0)" class="nav-link sub-toggle">
-            Presse & Actus
-        </a>
-
-        <div class="fan-menu">
-            <div class="fan-inner">
-                <a
-                    href="/dernieres-actualites"
-                    class={
-                        isActive("/dernieres-actualites")
-                            ? "active"
-                            : ""
-                    }
-                >
-                    <span>01</span> Dernières Actualités
-                </a>
-
-                <a
-                    href="/articles-et-presse"
-                    class={
-                        isActive("/articles-et-presse")
-                            ? "active"
-                            : ""
-                    }
-                >
-                    <span>02</span> Articles de presse
-                </a>
-            </div>
-        </div>
-    </li>
-</ul>
-    </nav>
-
-    <!-- RIGHT: CONTACT -->
-    <div class="actions-group">
-        <div class="cta-container desktop-only">
-            <a href="#contact" class="static-shard-btn">
-                <span>CONTACT</span>
+                : ""}
+            >
+              <span>01</span> Pour les jeunes & parents
             </a>
+
+            <a
+              href="/pour-les-professionnels"
+              class={isActive("/pour-les-professionnels") ? "active" : ""}
+            >
+              <span>02</span> Pour les professionnels
+            </a>
+          </div>
         </div>
-        <div class="mobile-burger" id="burgerTrigger">
-            <div class="burger-line line-top"></div>
-            <div class="burger-line line-bottom"></div>
+      </li>
+
+      <li class={`nav-item ${isActive("/activites") ? "active" : ""}`}>
+        <a href="/activites" class="nav-link">Activités</a>
+      </li>
+
+      <li
+        class={`nav-item has-sub ${
+          isSubActive(["/dernieres-actualites", "/articles-et-presse"])
+            ? "active"
+            : ""
+        }`}
+      >
+        <a href="javascript:void(0)" class="nav-link sub-toggle">
+          Presse & Actus
+        </a>
+
+        <div class="fan-menu">
+          <div class="fan-inner">
+            <a
+              href="/dernieres-actualites"
+              class={isActive("/dernieres-actualites") ? "active" : ""}
+            >
+              <span>01</span> Dernières Actualités
+            </a>
+
+            <a
+              href="/articles-et-presse"
+              class={isActive("/articles-et-presse") ? "active" : ""}
+            >
+              <span>02</span> Articles de presse
+            </a>
+          </div>
         </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- RIGHT: CONTACT -->
+  <div class="actions-group">
+    <div class="cta-container desktop-only">
+      <a href="#contact" class="static-shard-btn">
+        <span>CONTACT</span>
+      </a>
     </div>
+    <div class="mobile-burger" id="burgerTrigger">
+      <div class="burger-line line-top"></div>
+      <div class="burger-line line-bottom"></div>
+    </div>
+  </div>
 </div>
 
 <!-- MOBILE OVERLAY -->
 <div class="mobile-menu-overlay" id="mobileMenu">
-    <nav class="mobile-nav-content">
-        <a href="#" class="m-nav-link">Home</a>
-        <div class="m-nav-item has-m-sub">
-            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
-                >Prise en charge</a
-            >
-            <div class="m-sub-menu">
-                <a href="#">Pour les jeunes & parents</a>
-                <a href="#">Pour les professionnels</a>
-            </div>
-        </div>
-        <a href="#" class="m-nav-link">Activités</a>
-        <div class="m-nav-item has-m-sub">
-            <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
-                >Presse & Actus</a
-            >
-            <div class="m-sub-menu">
-                <a href="#">Actualités</a>
-                <a href="#">Articles de presse</a>
-            </div>
-        </div>
-        <a href="#contact" class="m-nav-link m-contact-link">Contact</a>
-    </nav>
+  <nav class="mobile-nav-content">
+    <a href="#" class="m-nav-link">Home</a>
+    <div class="m-nav-item has-m-sub">
+      <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
+        >Prise en charge</a
+      >
+      <div class="m-sub-menu">
+        <a href="#">Pour les jeunes & parents</a>
+        <a href="#">Pour les professionnels</a>
+      </div>
+    </div>
+    <a href="#" class="m-nav-link">Activités</a>
+    <div class="m-nav-item has-m-sub">
+      <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
+        >Presse & Actus</a
+      >
+      <div class="m-sub-menu">
+        <a href="#">Actualités</a>
+        <a href="#">Articles de presse</a>
+      </div>
+    </div>
+    <a href="#contact" class="m-nav-link m-contact-link">Contact</a>
+  </nav>
 </div>
 
 <script>
-    const el = document.querySelector(".sidebar-brand");
-    el.style.height = window.innerHeight - 80 + "px";
-    // document.querySelector(".brosmedia-header").style.height =
-    //     document.querySelector(".header-right").offsetHeight + "px";
+  const el = document.querySelector(".sidebar-brand");
+  el.style.height = window.innerHeight - 80 + "px";
+  // document.querySelector(".brosmedia-header").style.height =
+  //     document.querySelector(".header-right").offsetHeight + "px";
 
-    // 1. Mobile Menu & Burger Toggle Logic
-    const burger = document.getElementById("burgerTrigger");
-    const menu = document.getElementById("mobileMenu");
+  // 1. Mobile Menu & Burger Toggle Logic
+  const burger = document.getElementById("burgerTrigger");
+  const menu = document.getElementById("mobileMenu");
 
-    burger.addEventListener("click", () => {
-        burger.classList.toggle("open");
-        menu.classList.toggle("open");
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("open");
+    menu.classList.toggle("open");
+  });
+
+  // 2. Mobile Submenu Toggle
+  document.querySelectorAll(".m-sub-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      trigger.parentElement.classList.toggle("active");
     });
+  });
 
-    // 2. Mobile Submenu Toggle
-    document.querySelectorAll(".m-sub-trigger").forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-            trigger.parentElement.classList.toggle("active");
-        });
+  // 3. Desktop Submenu Toggles
+  document.querySelectorAll(".sub-toggle").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const parent = btn.parentElement;
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        if (item !== parent) item.classList.remove("active");
+      });
+      parent.classList.toggle("active");
     });
+  });
 
-    // 3. Desktop Submenu Toggles
-    document.querySelectorAll(".sub-toggle").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const parent = btn.parentElement;
-            document.querySelectorAll(".nav-item").forEach((item) => {
-                if (item !== parent) item.classList.remove("active");
-            });
-            parent.classList.toggle("active");
-        });
-    });
-
-    // 4. Click Outside to Close
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest(".nav-item")) {
-            document
-                .querySelectorAll(".nav-item")
-                .forEach((item) => item.classList.remove("active"));
-        }
-    });
+  // 4. Click Outside to Close
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".nav-item")) {
+      document
+        .querySelectorAll(".nav-item")
+        .forEach((item) => item.classList.remove("active"));
+    }
+  });
 </script>
