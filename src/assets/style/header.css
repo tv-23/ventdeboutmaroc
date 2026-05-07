@@ -1,11 +1,11 @@
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Big Shoulders", cursive !important;
-}
+  }
 
 
 /* --- 1. TOP INFO BAR (NEW) --- */
@@ -176,9 +176,7 @@ h6 {
 .nav-link:hover {
     color: var(--primary);
 }
-.nav-item.active a{
-    color: var(--primary);
-}
+
 /* Submenu Desktop */
 .fan-menu {
     position: absolute;
@@ -406,17 +404,15 @@ h6 {
     }
 
 
-    .top-header-bar {
-        display: flex !important;
-        /* Force show */
+     .top-header-bar {
+        display: flex !important; /* Force show */
         left: 0;
         width: 100%;
-
+        
     }
-
+    
     .top-bar-container {
-        padding: 0 20px;
-        /* Reduce padding for smaller screens */
+        padding: 0 20px; /* Reduce padding for smaller screens */
     }
 
     .brosmedia-header {

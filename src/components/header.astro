@@ -1,10 +1,5 @@
 ---
 import "../../src/assets/style/header.css";
-
-const currentPath = Astro.url.pathname;
-
-const isActive = (path) => currentPath === path;
-const isSubActive = (paths) => paths.includes(currentPath);
 ---
 
 <!-- 1. NEW TOP BAR -->
@@ -57,75 +52,37 @@ const isSubActive = (paths) => paths.includes(currentPath);
   <!-- CENTER: NAVIGATION -->
   <nav class="kinetic-nav desktop-only">
     <ul class="nav-list">
-      <li class={`nav-item ${isActive("/") ? "active" : ""}`}>
+      <li class="nav-item">
         <a href="/" class="nav-link">Home</a>
       </li>
-
-      <li
-        class={`nav-item has-sub ${
-          isSubActive([
-            "/pour-les-jeunes-et-les-parents",
-            "/pour-les-professionnels",
-          ])
-            ? "active"
-            : ""
-        }`}
-      >
-        <a href="javascript:void(0)" class="nav-link sub-toggle">
-          Prise en charge
-        </a>
-
+      <li class="nav-item has-sub">
+        <a href="javascript:void(0)" class="nav-link sub-toggle"
+          >Prise en charge</a
+        >
         <div class="fan-menu">
           <div class="fan-inner">
-            <a
-              href="/pour-les-jeunes-et-les-parents"
-              class={isActive("/pour-les-jeunes-et-les-parents")
-                ? "active"
-                : ""}
+            <a href="/pour-les-jeunes-et-les-parents"
+              ><span>01</span> Pour les jeunes & parents</a
             >
-              <span>01</span> Pour les jeunes & parents
-            </a>
-
-            <a
-              href="/pour-les-professionnels"
-              class={isActive("/pour-les-professionnels") ? "active" : ""}
+            <a href="/pour-les-professionnels"
+              ><span>02</span> Pour les professionnels</a
             >
-              <span>02</span> Pour les professionnels
-            </a>
           </div>
         </div>
       </li>
-
-      <li class={`nav-item ${isActive("/activites") ? "active" : ""}`}>
+      <li class="nav-item">
         <a href="/activites" class="nav-link">Activités</a>
       </li>
-
-      <li
-        class={`nav-item has-sub ${
-          isSubActive(["/dernieres-actualites", "/articles-et-presse"])
-            ? "active"
-            : ""
-        }`}
-      >
-        <a href="javascript:void(0)" class="nav-link sub-toggle">
-          Presse & Actus
-        </a>
-
+      <li class="nav-item has-sub">
+        <a href="javascript:void(0)" class="nav-link sub-toggle"
+          >Presse & Actus</a
+        >
         <div class="fan-menu">
           <div class="fan-inner">
-            <a
-              href="/dernieres-actualites"
-              class={isActive("/dernieres-actualites") ? "active" : ""}
+            <a href="/dernieres-actualites"
+              ><span>01</span> Dernières Actualités</a
             >
-              <span>01</span> Dernières Actualités
-            </a>
-
-            <a
-              href="/articles-et-presse"
-              class={isActive("/articles-et-presse") ? "active" : ""}
-            >
-              <span>02</span> Articles de presse
-            </a>
+            <a href="/articles-et-presse"><span>02</span> Articles de presse</a>
           </div>
         </div>
       </li>
@@ -135,7 +92,7 @@ const isSubActive = (paths) => paths.includes(currentPath);
   <!-- RIGHT: CONTACT -->
   <div class="actions-group">
     <div class="cta-container desktop-only">
-      <a href="#contact" class="static-shard-btn">
+      <a href="/contact" class="static-shard-btn">
         <span>CONTACT</span>
       </a>
     </div>
@@ -149,27 +106,35 @@ const isSubActive = (paths) => paths.includes(currentPath);
 <!-- MOBILE OVERLAY -->
 <div class="mobile-menu-overlay" id="mobileMenu">
   <nav class="mobile-nav-content">
-    <a href="#" class="m-nav-link">Home</a>
+    <a href="/" class="m-nav-link">Home</a>
+
     <div class="m-nav-item has-m-sub">
       <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
         >Prise en charge</a
       >
+
       <div class="m-sub-menu">
-        <a href="#">Pour les jeunes & parents</a>
-        <a href="#">Pour les professionnels</a>
+        <a href="/pour-les-jeunes-et-les-parents">Pour les jeunes & parents</a>
+
+        <a href="/pour-les-professionnels">Pour les professionnels</a>
       </div>
     </div>
-    <a href="#" class="m-nav-link">Activités</a>
+
+    <a href="/activites" class="m-nav-link">Activités</a>
+
     <div class="m-nav-item has-m-sub">
       <a href="javascript:void(0)" class="m-nav-link m-sub-trigger"
         >Presse & Actus</a
       >
+
       <div class="m-sub-menu">
-        <a href="#">Actualités</a>
-        <a href="#">Articles de presse</a>
+        <a href="/dernieres-actualites">Actualités</a>
+
+        <a href="/articles-et-presse">Articles de presse</a>
       </div>
     </div>
-    <a href="#contact" class="m-nav-link m-contact-link">Contact</a>
+
+    <a href="/contact" class="m-nav-link m-contact-link">Contact</a>
   </nav>
 </div>
 
